@@ -8,6 +8,8 @@ describe('Autenticação', () => {
     LoginPage.goToLoginPage() 
   })
 
+  afterEach(() => cy.screenshot())
+
   it('01 Cenário: Login com sucesso', () => {
     LoginPage.fillCredents('standard_user', 'secret_sauce')
     LoginPage.submitLogin()

@@ -15,6 +15,8 @@ describe('Home', function () {
         LoginPage.doLogin('standard_user', 'secret_sauce')
     })
 
+    afterEach(() => cy.screenshot())
+
     it('01 Cenário: Visualiza lista de produtos após login', () => {
         // Valida cada item da lista de produtos
         for (const product of productList) HomePage.displayProductList(product)
