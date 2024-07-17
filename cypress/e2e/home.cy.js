@@ -4,7 +4,6 @@ import LoginPage from '../pages/login.page'
 import HomePage from '../pages/home.page'
 import { userInfo } from '../support/helpers'
 import { productList } from '../fixtures/home';
-import homePage from '../pages/home.page';
 
 const rand = Math.floor(Math.random() * productList.length)
 
@@ -107,7 +106,7 @@ describe('Funcionalidade: Home', function () {
         let user = userInfo()
 
         HomePage.doPurchase(product, user)
-        homePage.goBackHome()
+        HomePage.goBackHome()
         LoginPage.atHome()
     })
 })
