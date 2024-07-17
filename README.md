@@ -34,7 +34,7 @@ npm run test
 
 ## Report da ultima execução 
 
-Você pode acessar o relatório da última execução [aqui](link.com.br).
+Você pode acessar o relatório da última execução [aqui](https://juliosantosjob.github.io/Vox-Tecnologia-Technical-Challenge/4/).
 
 
 ### Contato
