@@ -2,105 +2,129 @@ import LoginPage from '../pages/login.page'
 
 class HomePage {
 
+    /**
+     * Construtor com os localizadores para centralizar 
+     * os elementos e reaproveitar os mesmos em metodos
+     * diferentes, estão definidos em ordem alfabetica
+     */
+    
     constructor() {
-        this.productValue = ''
+        this.btnAddToCard = '[name*="add-to-cart"]'
+        this.btnBackToProducts = '[data-test="back-to-products"]'
+        this.btnCancel = '[data-test="cancel"]'
+        this.btnCheckout = '#checkout'
+        this.btnFinish = '[data-test="finish"]'
+        this.btnKeepShopping = '[data-test="continue-shopping"]'
+        this.btnRemove = '[data-test*="remove"]'
+        this.btnShoppingCart = '[data-test="shopping-cart-link"]'
+        this.btnSubmit = '[type="submit"]'
+        
+        this.fldCardBadge = '[data-test="shopping-cart-badge"]'
+        this.fldCartList = '[data-test="cart-list"]'
+        this.fldCompleteHeader = '[data-test="complete-header"]'
         this.fldInventoryItemName = '[data-test="inventory-item-name"]'
+        this.fldInventoryItemPrice = '[data-test="inventory-item-price"]'
         this.fldinventoryItem = '[data-test="inventory-item"]'
+
+        this.iptFirstName = '[data-test="firstName"]'
+        this.iptLastName = '[data-test="lastName"]'
+        this.iptZipCode = '[data-test="postalCode"]'
+        
+        this.vltProduct = ''
     }
 
     /* Metodos de Ação */
     addProductToCart(product) {
         cy.contains(this.fldInventoryItemName, product)
             .parents(this.fldinventoryItem)
-            .as('getProduct')
+            .as('product')
 
-        cy.get('@getProduct')
-            .find('[data-test="inventory-item-price"]').then(($price) =>
-                this.productValue = $price.text()) // pega o valor do produto e salva na variável
+        cy.get('@product')
+            .find(this.fldInventoryItemPrice).then(($price) =>
+                this.vltProduct = $price.text()) // pega o valor do produto e salva na variável
 
-        cy.get('@getProduct')
-            .find('[name*="add-to-cart"]')
+        cy.get('@product')
+            .find(this.btnAddToCard)
             .click()
     }
 
     goToCart() {
-        cy.get('[data-test="shopping-cart-link"]')
+        cy.get(this.btnShoppingCart)
             .click()
     }
 
     removeProductFromCart(product) {
-        cy.contains('[data-test="inventory-item-name"]', product)
-            .parents('[data-test="inventory-item"]')
-            .find('[data-test*="remove"]')
+        cy.contains(this.fldInventoryItemName, product)
+            .parents(this.fldinventoryItem)
+            .find(this.btnRemove)
             .click()
     }
 
     doCheckout() {
-        cy.get('#checkout').click()
+        cy.get(this.btnCheckout).click()
     }
 
     formUser(user) {
         user.firstName === ''
-            ? cy.get('[data-test="firstName"]').clear()
-            : cy.get('[data-test="firstName"]').type(user.firstName)
+            ? cy.get(this.iptFirstName).clear()
+            : cy.get(this.iptFirstName).type(user.firstName)
 
         user.lastName === ''
-            ? cy.get('[data-test="lastName"]').clear()
-            : cy.get('[data-test="lastName"]').type(user.lastName)
+            ? cy.get(this.iptLastName).clear()
+            : cy.get(this.iptLastName).type(user.lastName)
 
         user.zipCode === ''
-            ? cy.get('[data-test="postalCode"]').clear()
-            : cy.get('[data-test="postalCode"]').type(user.zipCode)
+            ? cy.get(this.iptZipCode).clear()
+            : cy.get(this.iptZipCode).type(user.zipCode)
 
-        cy.get('[type="submit"]').click()
+        cy.get(this.btnSubmit).click()
     }
 
     finishPurchase() {
-        cy.get('[data-test="finish"]').click()
+        cy.get(this.btnFinish).click()
     }
 
     keepShopping() {
-        cy.get('[data-test="continue-shopping"]').click()
+        cy.get(this.btnKeepShopping).click()
     }
 
     cancelPurchase() {
-        cy.get('[data-test="cancel"]').click()
+        cy.get(this.btnCancel).click()
     }
 
     goBackHome() {
-        cy.get('[data-test="back-to-products"]').click()
-        
+        cy.get(this.btnBackToProducts).click()
     }
 
     /* Metodos de validação */
     verifyPurchaseMessage(message) {
-        return cy.contains('[data-test="complete-header"]', message)
+        return cy.contains(this.fldCompleteHeader, message)
             .should('be.visible')
     }
 
     validadeCheckoutOverview(product) {
         return cy.wrap(this).then((get) => {
-            cy.contains('[data-test="inventory-item"]', product)
+            cy.contains(this.fldinventoryItem, product)
                 .should('be.visible')
-            cy.contains('.item_pricebar', get.productValue)
+            cy.contains(this.fldInventoryItemPrice, get.vltProduct)
                 .should('be.visible') // verifica o valor do produto
         })
     }
 
     displayProductList(product) {
-        return cy.contains('[data-test="inventory-item-name"]', product)
+        return cy.contains(this.fldInventoryItemName, product)
             .should('exist')
             .and('be.visible')
     }
 
     productsOnCart(product) {
-        return cy.contains('[data-test="cart-list"]', product)
+        return cy.contains(this.fldCartList, product)
             .should('exist')
             .and('be.visible')
     }
 
     cartIsEmpty() {
-        return cy.get('[data-test="shopping-cart-badge"]')
+        return cy.get(this.fldCardBadge)
             .should('not.exist')
     }
 

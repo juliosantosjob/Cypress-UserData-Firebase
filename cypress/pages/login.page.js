@@ -1,39 +1,55 @@
 class LoginPage {
 
+    /**
+     * Construtor com os localizadores para centralizar 
+     * os elementos e reaproveitar os mesmos em metodos
+     * diferentes, estão definidos em ordem alfabetica
+     */
+
+    constructor() {
+        this.btnBurgerMenu = '#react-burger-menu-btn'
+        this.btnLogout = '#logout_sidebar_link'
+        this.btnSubmit = '#login-button'
+        this.fldLoginLogo = '[class="login_logo"]'
+        this.fldMsgError = '[data-test="error"]'
+        this.fldTitleProducts = '[data-test="title"]'
+        this.iptPassword = '#password'
+        this.iptUsername = '#user-name'
+    }
+
     goToLoginPage() {
         cy.visit('/')
-
-        cy.contains('[class="login_logo"]', 'Swag Labs')
+        cy.contains(this.fldLoginLogo, 'Swag Labs')
             .should('be.visible')
     }
 
     fillCredents(username, password) {
         username !== ''
-            ? cy.get('#user-name').type(username)
-            : cy.get('#user-name').clear();
+            ? cy.get(this.iptUsername).type(username)
+            : cy.get(this.iptUsername).clear();
 
         password !== ''
-            ? cy.get('#password').type(password)
-            : cy.get('#password').clear()
+            ? cy.get(this.iptPassword).type(password)
+            : cy.get(this.iptPassword).clear()
     }
 
     submit() {
-        cy.get('[type="submit"]').click()
+        cy.get(this.btnSubmit).click()
     }
 
     atHome() {
-        cy.contains('[data-test="title"]', 'Products')
+        cy.contains(this.fldTitleProducts, 'Products')
             .should('be.visible')
     }
 
     verifyError(message) {
-        cy.contains('[data-test="error"]', message)
+        cy.contains(this.fldMsgError, message)
             .should('be.visible')
     }
 
     doLogout() {
-        cy.get('#react-burger-menu-btn').click()
-        cy.get('#logout_sidebar_link').click()
+        cy.get(this.btnBurgerMenu).click()
+        cy.get(this.btnLogout).click()
     }
 
     doLogin(username, password) {
