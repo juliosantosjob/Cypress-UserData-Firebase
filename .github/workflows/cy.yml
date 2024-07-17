@@ -1,4 +1,3 @@
-
 name: Pipe
 
 on:
@@ -22,7 +21,7 @@ jobs:
         uses: cypress-io/github-action@v5
         with:
           wait-on-timeout: 60
-          start: npm run allure:test
+          start: npm run test
 
       - name: Load test report history
         uses: actions/checkout@v3
