@@ -1,4 +1,4 @@
-# Projeto Sauce Labs Automation - Saucedemo
+# Projeto Automação de Testes Saucedemo
 
 ### Visão Geral
 
