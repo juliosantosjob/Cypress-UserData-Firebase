@@ -9,7 +9,9 @@ on:
 jobs:
   regression-cypress:
     runs-on: ubuntu-latest
-
+    env: 
+      BASE_URL: ${{ secrets.BASE_URL }}
+      
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v3
