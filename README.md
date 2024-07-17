@@ -2,9 +2,9 @@
 
 ### Visão Geral
 
-Este projeto automatiza testes para a aplicação Saucedemo usando Sauce Labs, focando nas funcionalidades de autenticação e gerenciamento de produtos.
+Este projeto automatiza testes para a aplicação Sauce Demo, focando nas funcionalidades de autenticação e gerenciamento de produtos.
 
-## Instalação e Configuração do Cypress
+## Instalação e Configuração
 
 ### Pré-requisitos 
 
@@ -26,16 +26,28 @@ cd <NOME_DO_PROJETO>
 
 ### Executando os Testes
 
-Para executar os testes, utilize o comando:
+Antes de executar crie um arquivo `.env` na raiz do projeto e cole a url da aplicação [Sauce Demo](https://www.saucedemo.com/). Existe um arquivo `.env.example` na raiz do projeto que você pode utilizar como base.
+
+por examplo: 
+
+  ```bash
+BASE_URL=http://meuprojeto.com
+  ```
+
+Realizando o passo anterior você pode executar os testes do projeto, executando o comando:
 
 ```
 npm run test
 ```
 
-## Report da ultima execução 
+## Reportes
 
-Você pode acessar o relatório da última execução [aqui.](https://juliosantosjob.github.io/Vox-Tecnologia-Technical-Challenge)
+O projeto foi desenvolvido com o Allure Report. Caso esteja rodando o projeto localmente, basta executar npm run allure:open, e o relatório com todas as informações da execução recém-realizada será aberto em uma nova aba do seu navegador.
 
+
+Mas caso esteja visualizado o projeto no github, basta clicar  e Você pode-rá acessar o relatório da última execução da pipe do projeto.
+
+Mas, caso esteja visualizando o projeto no GitHub, basta clicar [aqui](https://juliosantosjob.github.io/Vox-Tecnologia-Technical-Challenge), e você poderá acessar o relatório da última execução da pipeline do projeto.
 
 ### Contato
 
