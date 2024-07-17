@@ -17,16 +17,16 @@ class LoginPage {
             : cy.get('#password').clear()
     }
 
-    submitLogin() {
-        cy.get('[data-test="login-button"]').click()
+    submit() {
+        cy.get('[type="submit"]').click()
     }
 
-    beLogged() {
+    atHome() {
         cy.contains('[data-test="title"]', 'Products')
             .should('be.visible')
     }
 
-    verifyLoginFailed(message) {
+    verifyError(message) {
         cy.contains('[data-test="error"]', message)
             .should('be.visible')
     }
@@ -39,8 +39,8 @@ class LoginPage {
     doLogin(username, password) {
         this.goToLoginPage()
         this.fillCredents(username, password)
-        this.submitLogin()
-        this.beLogged()
+        this.submit()
+        this.atHome()
     }
 }
 

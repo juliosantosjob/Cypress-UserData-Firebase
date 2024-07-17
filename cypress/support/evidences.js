@@ -1,3 +1,8 @@
+/** 
+ * Define nome e o caminho do arquivo de screenshot 
+ * e anexo ele ao relatório do allure 
+ */
+
 Cypress.on('test:after:run', (test, runnable) => {
     const screenshotName = `${runnable.parent.title} - ${test.title}.png`
     const screenshotPath = `screenshots/${Cypress.spec.name}/${screenshotName}`

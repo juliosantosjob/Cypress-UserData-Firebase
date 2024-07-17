@@ -4,10 +4,11 @@ import LoginPage from '../pages/login.page'
 import HomePage from '../pages/home.page'
 import { userInfo } from '../support/helpers'
 import { productList } from '../fixtures/home';
+import homePage from '../pages/home.page';
 
 const rand = Math.floor(Math.random() * productList.length)
 
-describe('Home', function () {
+describe('Funcionalidade: Home', function () {
     // Pega um produto a partir da lista randomicamente
     const product = productList[rand]
 
@@ -36,10 +37,12 @@ describe('Home', function () {
     })
 
     it('04 Cenário: Fluxo de Finalização de Compra', () => {
+        let user = userInfo()
+
         HomePage.addProductToCart(product)
         HomePage.goToCart()
         HomePage.doCheckout()
-        HomePage.setUserInfo(userInfo)
+        HomePage.formUser(user)
         HomePage.validadeCheckoutOverview(product)
         HomePage.finishPurchase()
         HomePage.verifyPurchaseMessage('Thank you for your order!')
@@ -49,6 +52,62 @@ describe('Home', function () {
         HomePage.addProductToCart(product)
         HomePage.goToCart()
         HomePage.keepShopping()
-        LoginPage.beLogged()
+        LoginPage.atHome()
+    })
+
+    it('06 Cenário: Fluxo de compra com nom de usuario em branco', () => {
+        let user = userInfo()
+
+        HomePage.addProductToCart(product)
+        HomePage.goToCart()
+        HomePage.doCheckout()
+
+        user.firstName = ''
+        HomePage.formUser(user)
+        LoginPage.verifyError('Error: First Name is required')
+    })
+
+    it('07 Cenário: Fluxo de compra com ultimo nome em branco', () => {
+        let user = userInfo()
+
+        HomePage.addProductToCart(product)
+        HomePage.goToCart()
+        HomePage.doCheckout()
+
+        user.lastName = ''
+        HomePage.formUser(user)
+        LoginPage.verifyError('Error: Last Name is required')
+    })
+
+    it('08 Cenário: Fluxo de compra com CEP em branco', () => {
+        let user = userInfo()   
+
+        HomePage.addProductToCart(product)
+        HomePage.goToCart()
+        HomePage.doCheckout()
+
+        user.zipCode = ''
+        HomePage.formUser(user)
+        LoginPage.verifyError('Error: Postal Code is required')
+    })
+
+    it('09 Cenário: Fluxo de cancelamento de compra', () => {
+        let user = userInfo()
+
+        HomePage.addProductToCart(product)
+        HomePage.goToCart()
+        HomePage.doCheckout()
+        HomePage.formUser(user)
+        HomePage.validadeCheckoutOverview(product)
+        HomePage.cancelPurchase()
+        LoginPage.atHome()
+    })
+
+    it('10 Cenário: Realiza a compra e volta para a Home', () => {
+        let user = userInfo()
+
+        HomePage.doPurchase(product, user)
+        homePage.goBackHome()
+        LoginPage.atHome()
     })
 })
