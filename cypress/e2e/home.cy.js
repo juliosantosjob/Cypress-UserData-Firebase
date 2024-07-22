@@ -3,7 +3,7 @@
 import LoginPage from '../pages/login.page'
 import HomePage from '../pages/home.page'
 import { userInfo } from '../support/helpers'
-import { productList } from '../fixtures/home';
+import { productList } from '../fixtures/home'
 
 const rand = Math.floor(Math.random() * productList.length)
 
