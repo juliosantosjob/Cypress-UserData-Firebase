@@ -7,49 +7,44 @@ class LoginPage {
      */
 
     constructor() {
-        this.btnBurgerMenu = '#react-burger-menu-btn'
-        this.btnLogout = '#logout_sidebar_link'
-        this.btnSubmit = '#login-button'
-        this.fldLoginLogo = '[class="login_logo"]'
-        this.fldMsgError = '[data-test="error"]'
-        this.fldTitleProducts = '[data-test="title"]'
-        this.iptPassword = '#password'
-        this.iptUsername = '#user-name'
+        this.buttonBurgerMenu = '#react-burger-menu-btn'
+        this.buttonLogout = '#logout_sidebar_link'
+        this.buttonSubmit = '#login-button'
+        this.fieldLoginLogo = '[class="login_logo"]'
+        this.fieldMsgError = '[data-test="error"]'
+        this.fieldTitleProducts = '[data-test="title"]'
+        this.inputPassword = '#password'
+        this.inputUsername = '#user-name'
     }
 
     goToLoginPage() {
         cy.visit('/')
-        cy.contains(this.fldLoginLogo, 'Swag Labs')
+        cy.contains(this.fieldLoginLogo, 'Swag Labs')
             .should('be.visible')
     }
 
     fillCredents(username, password) {
-        username !== ''
-            ? cy.get(this.iptUsername).type(username)
-            : cy.get(this.iptUsername).clear();
-
-        password !== ''
-            ? cy.get(this.iptPassword).type(password)
-            : cy.get(this.iptPassword).clear()
+        cy.typeOrClear(this.inputUsername, username)
+        cy.typeOrClear(this.inputPassword, password)
     }
 
     submit() {
-        cy.get(this.btnSubmit).click()
+        cy.get(this.buttonSubmit).click()
     }
 
     atHome() {
-        cy.contains(this.fldTitleProducts, 'Products')
+        cy.contains(this.fieldTitleProducts, 'Products')
             .should('be.visible')
     }
 
     verifyError(message) {
-        cy.contains(this.fldMsgError, message)
+        cy.contains(this.fieldMsgError, message)
             .should('be.visible')
     }
 
     doLogout() {
-        cy.get(this.btnBurgerMenu).click()
-        cy.get(this.btnLogout).click()
+        cy.get(this.buttonBurgerMenu).click()
+        cy.get(this.buttonLogout).click()
     }
 
     doLogin(username, password) {

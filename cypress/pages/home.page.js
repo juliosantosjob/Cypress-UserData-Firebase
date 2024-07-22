@@ -1,5 +1,3 @@
-import LoginPage from '../pages/login.page'
-
 class HomePage {
 
     /**
@@ -7,128 +5,120 @@ class HomePage {
      * os elementos e reaproveitar os mesmos em metodos
      * diferentes, estão definidos em ordem alfabetica
      */
-    
-    constructor() {
-        this.btnAddToCard = '[name*="add-to-cart"]'
-        this.btnBackToProducts = '[data-test="back-to-products"]'
-        this.btnCancel = '[data-test="cancel"]'
-        this.btnCheckout = '#checkout'
-        this.btnFinish = '[data-test="finish"]'
-        this.btnKeepShopping = '[data-test="continue-shopping"]'
-        this.btnRemove = '[data-test*="remove"]'
-        this.btnShoppingCart = '[data-test="shopping-cart-link"]'
-        this.btnSubmit = '[type="submit"]'
-        
-        this.fldCardBadge = '[data-test="shopping-cart-badge"]'
-        this.fldCartList = '[data-test="cart-list"]'
-        this.fldCompleteHeader = '[data-test="complete-header"]'
-        this.fldInventoryItemName = '[data-test="inventory-item-name"]'
-        this.fldInventoryItemPrice = '[data-test="inventory-item-price"]'
-        this.fldinventoryItem = '[data-test="inventory-item"]'
 
-        this.iptFirstName = '[data-test="firstName"]'
-        this.iptLastName = '[data-test="lastName"]'
-        this.iptZipCode = '[data-test="postalCode"]'
-        
-        this.vltProduct = ''
+    constructor() {
+        this.buttonAddToCard = '[name*="add-to-cart"]'
+        this.buttonBackToProducts = '[data-test="back-to-products"]'
+        this.buttonCancel = '[data-test="cancel"]'
+        this.buttonCheckout = '#checkout'
+        this.buttonFinish = '[data-test="finish"]'
+        this.buttonKeepShopping = '[data-test="continue-shopping"]'
+        this.buttonRemove = '[data-test*="remove"]'
+        this.buttonShoppingCart = '[data-test="shopping-cart-link"]'
+        this.buttonSubmit = '[type="submit"]'
+        this.fieldCardBadge = '[data-test="shopping-cart-badge"]'
+        this.fieldCartList = '[data-test="cart-list"]'
+        this.fieldCompleteHeader = '[data-test="complete-header"]'
+        this.fieldInventoryItemName = '[data-test="inventory-item-name"]'
+        this.fieldInventoryItemPrice = '[data-test="inventory-item-price"]'
+        this.fieldinventoryItem = '[data-test="inventory-item"]'
+        this.inputFirstName = '[data-test="firstName"]'
+        this.inputLastName = '[data-test="lastName"]'
+        this.inputZipCode = '[data-test="postalCode"]'
+        this.valueProduct = ''
     }
 
     /* Metodos de Ação */
+
     addProductToCart(product) {
-        cy.contains(this.fldInventoryItemName, product)
-            .parents(this.fldinventoryItem)
+        cy.contains(this.fieldInventoryItemName, product)
+            .parents(this.fieldinventoryItem)
             .as('product')
 
         cy.get('@product')
-            .find(this.fldInventoryItemPrice).then(($price) =>
-                this.vltProduct = $price.text()) // pega o valor do produto e salva na variável
+            .find(this.fieldInventoryItemPrice)
+            .then(($price) => this.valueProduct = $price.text()) 
+            // Obtenho o valor do produto e salvo o mesmo na variável "valueProduct"
 
         cy.get('@product')
-            .find(this.btnAddToCard)
+            .find(this.buttonAddToCard)
             .click()
     }
 
     goToCart() {
-        cy.get(this.btnShoppingCart)
+        cy.get(this.buttonShoppingCart)
             .click()
     }
 
     removeProductFromCart(product) {
-        cy.contains(this.fldInventoryItemName, product)
-            .parents(this.fldinventoryItem)
-            .find(this.btnRemove)
+        cy.contains(this.fieldInventoryItemName, product)
+            .parents(this.fieldinventoryItem)
+            .find(this.buttonRemove)
             .click()
     }
 
     doCheckout() {
-        cy.get(this.btnCheckout).click()
+        cy.get(this.buttonCheckout).click()
     }
 
     formUser(user) {
-        user.firstName === ''
-            ? cy.get(this.iptFirstName).clear()
-            : cy.get(this.iptFirstName).type(user.firstName)
-
-        user.lastName === ''
-            ? cy.get(this.iptLastName).clear()
-            : cy.get(this.iptLastName).type(user.lastName)
-
-        user.zipCode === ''
-            ? cy.get(this.iptZipCode).clear()
-            : cy.get(this.iptZipCode).type(user.zipCode)
-
-        cy.get(this.btnSubmit).click()
+        cy.typeOrClear(this.inputFirstName, user.firstName)
+        cy.typeOrClear(this.inputLastName, user.lastName)
+        cy.typeOrClear(this.inputZipCode, user.zipCode)
+        cy.get(this.buttonSubmit).click()
     }
 
     finishPurchase() {
-        cy.get(this.btnFinish).click()
+        cy.get(this.buttonFinish).click()
     }
 
     keepShopping() {
-        cy.get(this.btnKeepShopping).click()
+        cy.get(this.buttonKeepShopping).click()
     }
 
     cancelPurchase() {
-        cy.get(this.btnCancel).click()
+        cy.get(this.buttonCancel).click()
     }
 
     goBackHome() {
-        cy.get(this.btnBackToProducts).click()
+        cy.get(this.buttonBackToProducts).click()
     }
 
     /* Metodos de validação */
+
     verifyPurchaseMessage(message) {
-        return cy.contains(this.fldCompleteHeader, message)
+        return cy.contains(this.fieldCompleteHeader, message)
             .should('be.visible')
     }
 
     validadeCheckoutOverview(product) {
         return cy.wrap(this).then((get) => {
-            cy.contains(this.fldinventoryItem, product)
+            cy.contains(this.fieldinventoryItem, product)
                 .should('be.visible')
-            cy.contains(this.fldInventoryItemPrice, get.vltProduct)
+            cy.contains(this.fieldInventoryItemPrice, get.valueProduct)
                 .should('be.visible') // verifica o valor do produto
         })
     }
 
     displayProductList(product) {
-        return cy.contains(this.fldInventoryItemName, product)
+        return cy.contains(this.fieldInventoryItemName, product)
             .should('exist')
             .and('be.visible')
     }
 
     productsOnCart(product) {
-        return cy.contains(this.fldCartList, product)
+        return cy.contains(this.fieldCartList, product)
             .should('exist')
             .and('be.visible')
     }
 
     cartIsEmpty() {
-        return cy.get(this.fldCardBadge)
+        return cy.get(this.fieldCardBadge)
             .should('not.exist')
     }
 
     /* Metodos de suporte  */
+
     doPurchase(product, userInfo) {
         this.addProductToCart(product)
         this.goToCart()

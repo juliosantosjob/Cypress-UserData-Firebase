@@ -6,8 +6,6 @@ describe('Funcionalidade: Autenticação', () => {
 
   beforeEach(() => LoginPage.goToLoginPage())
 
-  afterEach(() => cy.screenshot())
-
   it('01 Cenário: Login com sucesso', () => {
     LoginPage.fillCredents('standard_user', 'secret_sauce')
     LoginPage.submit()
@@ -59,4 +57,6 @@ describe('Funcionalidade: Autenticação', () => {
     LoginPage.doLogout()
     LoginPage.goToLoginPage()
   })
+
+  afterEach(() => cy.screenshot())
 })

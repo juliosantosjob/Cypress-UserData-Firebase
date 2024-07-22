@@ -7,15 +7,11 @@ import { productList } from '../fixtures/home';
 
 const rand = Math.floor(Math.random() * productList.length)
 
-describe('Funcionalidade: Home', function () {
+describe('Funcionalidade: Home', () => {
     // Pega um produto a partir da lista randomicamente
     const product = productList[rand]
 
-    beforeEach(() => {
-        LoginPage.doLogin('standard_user', 'secret_sauce')
-    })
-
-    afterEach(() => cy.screenshot())
+    beforeEach(() => LoginPage.doLogin('standard_user', 'secret_sauce'))
 
     it('01 Cenário: Visualiza lista de produtos após login', () => {
         // Valida cada item da lista de produtos
@@ -56,36 +52,33 @@ describe('Funcionalidade: Home', function () {
 
     it('06 Cenário: Fluxo de compra com nom de usuario em branco', () => {
         let user = userInfo()
+        user.firstName = ''
 
         HomePage.addProductToCart(product)
         HomePage.goToCart()
         HomePage.doCheckout()
-
-        user.firstName = ''
         HomePage.formUser(user)
         LoginPage.verifyError('Error: First Name is required')
     })
 
     it('07 Cenário: Fluxo de compra com ultimo nome em branco', () => {
         let user = userInfo()
+        user.lastName = ''
 
         HomePage.addProductToCart(product)
         HomePage.goToCart()
         HomePage.doCheckout()
-
-        user.lastName = ''
         HomePage.formUser(user)
         LoginPage.verifyError('Error: Last Name is required')
     })
 
     it('08 Cenário: Fluxo de compra com CEP em branco', () => {
-        let user = userInfo()   
+        let user = userInfo()
+        user.zipCode = ''
 
         HomePage.addProductToCart(product)
         HomePage.goToCart()
         HomePage.doCheckout()
-
-        user.zipCode = ''
         HomePage.formUser(user)
         LoginPage.verifyError('Error: Postal Code is required')
     })
@@ -109,4 +102,6 @@ describe('Funcionalidade: Home', function () {
         HomePage.goBackHome()
         LoginPage.atHome()
     })
+
+    afterEach(() => cy.screenshot())
 })
