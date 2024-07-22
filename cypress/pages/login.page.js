@@ -32,19 +32,19 @@ class LoginPage {
         cy.get(this.buttonSubmit).click()
     }
 
+    doLogout() {
+        cy.get(this.buttonBurgerMenu).click()
+        cy.get(this.buttonLogout).click()
+    }
+
     atHome() {
-        cy.contains(this.fieldTitleProducts, 'Products')
+       return cy.contains(this.fieldTitleProducts, 'Products')
             .should('be.visible')
     }
 
     verifyError(message) {
-        cy.contains(this.fieldMsgError, message)
+       return cy.contains(this.fieldMsgError, message)
             .should('be.visible')
-    }
-
-    doLogout() {
-        cy.get(this.buttonBurgerMenu).click()
-        cy.get(this.buttonLogout).click()
     }
 
     doLogin(username, password) {
