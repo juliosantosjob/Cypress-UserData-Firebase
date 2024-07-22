@@ -16,7 +16,7 @@ describe('Funcionalidade: Home', () => {
     it('01 Cenário: Visualiza lista de produtos após login', () => {
         for (const product of productList) {
             HomePage.displayProductList(product)
-             // Estou verificando cada item da lista de produtos
+            // Estou verificando cada item da lista de produtos
         }
     })
 
