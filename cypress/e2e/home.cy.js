@@ -8,14 +8,16 @@ import { productList } from '../fixtures/home';
 const rand = Math.floor(Math.random() * productList.length)
 
 describe('Funcionalidade: Home', () => {
-    // Pega um produto a partir da lista randomicamente
     const product = productList[rand]
+    // Estou obtendo um produto a partir da lista randomicamente
 
     beforeEach(() => LoginPage.doLogin('standard_user', 'secret_sauce'))
 
     it('01 Cenário: Visualiza lista de produtos após login', () => {
-        // Valida cada item da lista de produtos
-        for (const product of productList) HomePage.displayProductList(product)
+        for (const product of productList) {
+            HomePage.displayProductList(product)
+             // Estou verificando cada item da lista de produtos
+        }
     })
 
     it('02 Cenário: Adicionar Produto ao Carrinho', () => {
