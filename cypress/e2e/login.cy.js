@@ -7,7 +7,7 @@ describe('Funcionalidade: Autenticação', () => {
 
   beforeEach(() => {
     LoginPage.openLoginPage()
-    LoginPage.getUser('User').then((response) => user = response)
+    LoginPage.getUser('authzUser').then((response) => user = response)
   })
 
   it('01 Cenário: Login com sucesso', () => {
@@ -52,9 +52,11 @@ describe('Funcionalidade: Autenticação', () => {
   })
 
   it('07 Cenário: Login com usuario bloqueado', () => {
-    LoginPage.fillCredents('locked_out_user', 'secret_sauce')
-    LoginPage.submit()
-    LoginPage.verifyError('Epic sadface: Sorry, this user has been locked out.')
+    LoginPage.getUser('lockedUser').then((lockedUser) => {
+      LoginPage.fillCredents(lockedUser.username, lockedUser.password)
+      LoginPage.submit()
+      LoginPage.verifyError('Epic sadface: Sorry, this user has been locked out.')
+    })
   })
 
   it('08 Cenário: Logout do Usuário ', () => {

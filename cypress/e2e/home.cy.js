@@ -11,8 +11,8 @@ describe('Funcionalidade: Home', () => {
     const product = productList[rand]
 
     beforeEach(() => {
-        LoginPage.getUser('User').then((user) => {
-            LoginPage.doLogin(user)
+        LoginPage.getUser('authzUser').then((authzUser) => {
+            LoginPage.doLogin(authzUser)
         })
     })
 
