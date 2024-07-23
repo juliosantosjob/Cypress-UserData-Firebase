@@ -1,4 +1,4 @@
-import { el, faker } from '@faker-js/faker'
+import { faker } from '@faker-js/faker'
 
 /**
  * Criei um comando para digitar ou limpar o campo 
