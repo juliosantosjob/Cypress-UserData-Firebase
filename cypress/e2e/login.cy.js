@@ -61,7 +61,11 @@ describe('Funcionalidade: Autenticação', () => {
   })
 
   it('08 Cenário: Logout do Usuário ', () => {
-    LoginPage.doLogin(username, password)
+    const user = {
+      username, 
+      password
+    }
+    LoginPage.doLogin(user)
     LoginPage.doLogout()
     LoginPage.openLoginPage()
   })
