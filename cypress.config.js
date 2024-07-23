@@ -13,4 +13,5 @@ module.exports = defineConfig({
       return config
     },
   },
-});
+  env: { PROJECT_ID: process.env.PROJECT_ID }
+})

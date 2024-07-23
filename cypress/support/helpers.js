@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker';
+import { faker } from '@faker-js/faker'
 
 /**
  * Criei um comando para digitar ou limpar o campo 
@@ -11,7 +11,25 @@ import { faker } from '@faker-js/faker';
 Cypress.Commands.add('typeOrClear', (selector, text) => {
     text === ''
         ? cy.get(selector).clear()
-        : cy.get(selector).type(text)
+        : cy.get(selector).type(text, { log: false })
+})
+
+/**
+ * Este comando retorna os dados salvos no firebase realtime database
+ * 
+ * @param {string} route
+ */
+
+Cypress.Commands.add('getDataDB', (route) => {
+    const url = `${Cypress.env('PROJECT_ID')}/${route}.json`
+
+    cy.request({
+        method: 'GET',
+        url: url,
+        failOnStatusCode: false
+    }).then((response) => {
+        return response.body
+    })
 })
 
 /**

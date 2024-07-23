@@ -8,15 +8,20 @@ import { productList } from '../fixtures/home'
 const rand = Math.floor(Math.random() * productList.length)
 
 describe('Funcionalidade: Home', () => {
+    let EMAIL, PASSWORD
     const product = productList[rand]
-    // Estou obtendo um produto a partir da lista randomicamente
 
-    beforeEach(() => LoginPage.doLogin('standard_user', 'secret_sauce'))
+    beforeEach(() => {
+        LoginPage.getUser('User').then((response) => {
+            EMAIL = response.username
+            PASSWORD = response.password
+            LoginPage.doLogin(EMAIL, PASSWORD)
+        })
+    })
 
     it('01 Cenário: Visualiza lista de produtos após login', () => {
         for (const product of productList) {
             HomePage.displayProductList(product)
-            // Estou verificando cada item da lista de produtos
         }
     })
 

@@ -1,11 +1,5 @@
 class HomePage {
-
-    /**
-     * Construtor com os localizadores para centralizar 
-     * os elementos e reaproveitar os mesmos em metodos
-     * diferentes, estão definidos em ordem alfabetica
-     */
-
+    
     constructor() {
         this.buttonAddToCard = '[name*="add-to-cart"]'
         this.buttonBackToProducts = '[data-test="back-to-products"]'
@@ -28,17 +22,13 @@ class HomePage {
         this.valueProduct = ''
     }
 
-    /* Metodos de Ação */
-
     addProductToCart(product) {
         cy.contains(this.fieldInventoryItemName, product)
-            .parents(this.fieldinventoryItem)
-            .as('product')
+            .parents(this.fieldinventoryItem).as('product')
 
         cy.get('@product')
             .find(this.fieldInventoryItemPrice)
             .then(($price) => this.valueProduct = $price.text()) 
-            // Obtenho o valor do produto e salvo o mesmo na variável "valueProduct"
 
         cy.get('@product')
             .find(this.buttonAddToCard)
@@ -84,8 +74,6 @@ class HomePage {
         cy.get(this.buttonBackToProducts).click()
     }
 
-    /* Metodos de validação */
-
     verifyPurchaseMessage(message) {
         return cy.contains(this.fieldCompleteHeader, message)
             .should('be.visible')
@@ -96,7 +84,7 @@ class HomePage {
             cy.contains(this.fieldinventoryItem, product)
                 .should('be.visible')
             cy.contains(this.fieldInventoryItemPrice, get.valueProduct)
-                .should('be.visible') // verifica o valor do produto
+                .should('be.visible')
         })
     }
 
@@ -116,8 +104,6 @@ class HomePage {
         return cy.get(this.fieldCardBadge)
             .should('not.exist')
     }
-
-    /* Metodos de suporte  */
 
     doPurchase(product, userInfo) {
         this.addProductToCart(product)

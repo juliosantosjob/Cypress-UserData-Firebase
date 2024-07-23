@@ -1,6 +1,5 @@
 /** 
- * Define nome e o caminho do arquivo de screenshot 
- * e anexo ele ao relatório do allure 
+ * Anexando screenshot ao relatório do allure
  */
 
 Cypress.on('test:after:run', (test, runnable) => {

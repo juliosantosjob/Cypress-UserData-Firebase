@@ -1,11 +1,5 @@
 class LoginPage {
-
-    /**
-     * Construtor com os localizadores para centralizar 
-     * os elementos e reaproveitar os mesmos em metodos
-     * diferentes, estão definidos em ordem alfabetica
-     */
-
+    
     constructor() {
         this.buttonBurgerMenu = '#react-burger-menu-btn'
         this.buttonLogout = '#logout_sidebar_link'
@@ -17,7 +11,7 @@ class LoginPage {
         this.inputUsername = '#user-name'
     }
 
-    goToLoginPage() {
+    openLoginPage() {
         cy.visit('/')
         cy.contains(this.fieldLoginLogo, 'Swag Labs')
             .should('be.visible')
@@ -47,8 +41,12 @@ class LoginPage {
             .should('be.visible')
     }
 
+    getUser(route) {
+        return cy.getDataDB(route)
+    }
+
     doLogin(username, password) {
-        this.goToLoginPage()
+        this.openLoginPage()
         this.fillCredents(username, password)
         this.submit()
         this.atHome()
