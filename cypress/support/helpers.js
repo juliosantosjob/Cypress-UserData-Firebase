@@ -1,4 +1,4 @@
-import { faker } from '@faker-js/faker'
+import { el, faker } from '@faker-js/faker'
 
 /**
  * Criei um comando para digitar ou limpar o campo 
@@ -28,7 +28,11 @@ Cypress.Commands.add('getDataDB', (route) => {
         url: url,
         failOnStatusCode: false
     }).then((response) => {
-        return response.body
+        if(!response) {
+            throw new Error('Request failed with status code 404')
+        } else {
+            return response.body
+        }
     })
 })
 
