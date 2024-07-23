@@ -8,15 +8,10 @@ import { productList } from '../fixtures/home'
 const rand = Math.floor(Math.random() * productList.length)
 
 describe('Funcionalidade: Home', () => {
-    let EMAIL, PASSWORD
     const product = productList[rand]
 
     beforeEach(() => {
-        LoginPage.getUser('User').then((response) => {
-            EMAIL = response.username
-            PASSWORD = response.password
-            LoginPage.doLogin(EMAIL, PASSWORD)
-        })
+        LoginPage.getUser('User').then((user) => LoginPage.doLogin(user))
     })
 
     it('01 Cenário: Visualiza lista de produtos após login', () => {

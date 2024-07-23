@@ -41,15 +41,15 @@ class LoginPage {
             .should('be.visible')
     }
 
-    getUser(route) {
-        return cy.getDataDB(route)
-    }
-
-    doLogin(username, password) {
+    doLogin(user) {
         this.openLoginPage()
-        this.fillCredents(username, password)
+        this.fillCredents(user.username, user.password)
         this.submit()
         this.atHome()
+    }
+
+    getUser(route) {
+        return cy.getDataDB(route)
     }
 }
 

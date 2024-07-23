@@ -3,25 +3,25 @@
 import LoginPage from '../pages/login.page'
 
 describe('Funcionalidade: Autenticação', () => {
-  let EMAIL, PASSWORD
+  let username, password
 
   beforeEach(() => {
     LoginPage.openLoginPage()
-    LoginPage.getUser('User').then((response) => {
-      EMAIL = response.username
-      PASSWORD = response.password
+    LoginPage.getUser('User').then((user) => {
+      username = user.username
+      password = user.password
     })
   })
 
   it('01 Cenário: Login com sucesso', () => {
     LoginPage.openLoginPage()
-    LoginPage.fillCredents(EMAIL, PASSWORD)
+    LoginPage.fillCredents(username, password)
     LoginPage.submit()
     LoginPage.atHome()
   })
 
   it('02 Cenário: Login com username inválido', () => {
-    LoginPage.fillCredents('invalid_user', PASSWORD)
+    LoginPage.fillCredents('invalid_user', password)
     LoginPage.submit()
     LoginPage.verifyError(
       'Epic sadface: Username and password do not match any user in this service'
@@ -29,7 +29,7 @@ describe('Funcionalidade: Autenticação', () => {
   })
 
   it('03 Cenário: Login com password inválido', () => {
-    LoginPage.fillCredents(EMAIL, 'invalid_password')
+    LoginPage.fillCredents(username, 'invalid_password')
     LoginPage.submit()
     LoginPage.verifyError(
       'Epic sadface: Username and password do not match any user in this service'
@@ -61,7 +61,7 @@ describe('Funcionalidade: Autenticação', () => {
   })
 
   it('08 Cenário: Logout do Usuário ', () => {
-    LoginPage.doLogin(EMAIL, PASSWORD)
+    LoginPage.doLogin(username, password)
     LoginPage.doLogout()
     LoginPage.openLoginPage()
   })
