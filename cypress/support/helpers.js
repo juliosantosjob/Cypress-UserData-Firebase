@@ -21,14 +21,11 @@ Cypress.Commands.add('typeOrClear', (selector, text) => {
  */
 
 Cypress.Commands.add('getDataDB', (route) => {
-    const url = `${Cypress.env('PROJECT_ID')}/${route}.json`
-
     cy.request({
         method: 'GET',
-        url: url,
-        failOnStatusCode: false
+        url: `${Cypress.env('PROJECT_ID')}/${route}.json`
     }).then((response) => {
-        if(!response) {
+        if (!response) {
             throw new Error('Request failed with status code 404')
         } else {
             return response.body
