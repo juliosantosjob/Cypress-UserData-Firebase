@@ -12,7 +12,7 @@ class LoginPage {
     }
 
     openLoginPage() {
-        cy.visit('/')
+        cy.visit(Cypress.env('BASE_URL'))
         cy.contains(this.fieldLoginLogo, 'Swag Labs')
             .should('be.visible')
     }
