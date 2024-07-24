@@ -3,4 +3,4 @@ screenshots
 downloads
 allure-results
 allure-report
-cypress.env.json
+.env
