@@ -54,5 +54,5 @@ export const userInfo = () => {
 
 afterEach(() => {
     cy.screenshot(`after-each-test/
-        ${Cypress.spec.name}/${Cypress.currentTest.title}`);
-});
+        ${Cypress.spec.name}/${Cypress.currentTest.title}`)
+})
