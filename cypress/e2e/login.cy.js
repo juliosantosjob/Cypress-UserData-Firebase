@@ -64,6 +64,4 @@ describe('Funcionalidade: Autenticação', () => {
     LoginPage.doLogout()
     LoginPage.openLoginPage()
   })
-
-  afterEach(() => cy.screenshot())
 })

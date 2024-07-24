@@ -106,6 +106,4 @@ describe('Funcionalidade: Home', () => {
         HomePage.goBackHome()
         LoginPage.atHome()
     })
-
-    afterEach(() => cy.screenshot())
 })

@@ -46,3 +46,13 @@ export const userInfo = () => {
         zipCode: faker.address.zipCode()
     }
 }
+
+/**
+ * Tira um screenshot ao final de cada teste
+ * 
+ */
+
+afterEach(() => {
+    cy.screenshot(`after-each-test/
+        ${Cypress.spec.name}/${Cypress.currentTest.title}`);
+});
