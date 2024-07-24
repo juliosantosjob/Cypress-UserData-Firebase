@@ -15,6 +15,7 @@ jobs:
     env: 
       BASE_URL: ${{ secrets.BASE_URL }}
       PROJECT_ID: ${{ secrets.PROJECT_ID }}
+      DEBUG: '@cypress/github-action'
       
     steps:
       - name: Checkout 🛎
