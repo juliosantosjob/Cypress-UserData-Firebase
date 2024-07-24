@@ -30,7 +30,7 @@ Antes de executar os testes, crie um arquivo chamado `cypress.env.json` na raiz 
 
 Os usuários do projeto estão configurados no Firebase Realtime Database para evitar hardcoding de dados de homologação no código. 
 
-![Descrição da Imagem](images/firebase-users.png)
+![Descrição da Imagem](docs/readme/firebase-users.png)
 
 Configurei o projeto para acessar o banco de dados via API usando o comando cy.getDataDB('name_user'). Basicamente, você precisa criar os usuários no Realtime Database e adicionar o ID do projeto no arquivo `cypress.env.json`. O arquivo deve ter o seguinte formato:
 
