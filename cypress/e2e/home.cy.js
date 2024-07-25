@@ -6,7 +6,6 @@ import { productList } from '../fixtures/home'
 import LoginPage from '../pages/login.page'
 import HomePage from '../pages/home.page'
 
-
 const rand = Math.floor(Math.random() * productList.length)
 
 describe('Funcionalidade: Home', () => {
