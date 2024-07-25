@@ -26,21 +26,19 @@ cd <NOME_DO_PROJETO>
 
 ### Executando os Testes
 
-Antes de executar os testes, crie um arquivo chamado `cypress.env.json` na raiz do projeto e adicione a URL da aplicação [Sauce Demo](https://www.saucedemo.com/). Você pode usar o arquivo `cypress.env.example` como referência ele se encontra na raiz do projeto.
+Antes de executar os testes, crie um arquivo chamado `.env` na raiz do projeto e adicione a URL da aplicação [Sauce Demo](https://www.saucedemo.com/). Você pode usar o arquivo `.env.example` como referência ele se encontra na raiz do projeto.
 
 Os usuários do projeto estão configurados no Firebase Realtime Database para evitar hardcoding de dados de homologação no código. 
 
 ![Descrição da Imagem](docs/readme/firebase-users.png)
 
-Configurei o projeto para acessar o banco de dados via API usando o comando cy.getDataDB('name_user'). Basicamente, você precisa criar os usuários no Realtime Database e adicionar o ID do projeto no arquivo `cypress.env.json`. O arquivo deve ter o seguinte formato:
+Configurei o projeto para acessar o banco de dados via API usando a task cy.getUser('name_user'). Basicamente, você precisa criar os usuários no Realtime Database e adicionar o ID do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
 
 Exemplo:
 
 ```
-{
-    "BASE_URL": "https://www.urlProject.com/",
-    "PROJECT_ID": "https://id-project.firebaseio.com"
-}
+BASE_URL=https://www.urlProject.com
+PROJECT_ID=id-project
 ```
 
 Realizando o passo anterior você pode executar os testes do projeto, executando o comando:

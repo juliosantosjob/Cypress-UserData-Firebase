@@ -2,4 +2,5 @@
 import 'allure-cypress/commands'
 
 // Importe cypress commands
-import './helpers'
+import './commands'
+import './reports'
