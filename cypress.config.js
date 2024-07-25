@@ -20,13 +20,16 @@ module.exports = defineConfig({
 
       on('task', {
         getUser({ route }) {
-          if (!route) throw new Error('Route is required to use this task!')
-          else if (typeof route !== 'string') throw new Error('Route needs to be a string!')
+          if (!route) {
+            throw new Error('Route is required to use this task!')
+          }
+          if (typeof route !== 'string') {
+            throw new Error('Route needs to be a string!')
+          }
 
           const GET_USER = `${DB_URL}/${route}.json`
           return new Promise((resolve, reject) => {
-            axios
-              .get(GET_USER)
+            axios.get(GET_USER)
               .then((res) => resolve(res.data))
               .catch((err) => {
                 console.error('Error fetching user data:', err)
