@@ -32,7 +32,7 @@ Os usuários do projeto estão configurados no Firebase Realtime Database para e
 
 ![Descrição da Imagem](docs/readme/firebase-users.png)
 
-Configurei o projeto para acessar o banco de dados via API usando a task cy.getUser('name_user'). Basicamente, você precisa criar os usuários no Realtime Database e adicionar o ID do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
+Configurei o projeto para acessar o banco de dados via API usando a task cy.task('getUser', {'name_user'}). Basicamente, você precisa criar os usuários no Realtime Database e adicionar o ID do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
 
 Exemplo:
 

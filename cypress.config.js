@@ -1,7 +1,7 @@
 const axios = require('axios')
 require('dotenv').config()
 
-const { defineConfig } = require('cypress');
+const { defineConfig } = require('cypress')
 const { allureCypress } = require('allure-cypress/reporter')
 
 if (!process.env.BASE_URL) throw new Error('BASE_URL is not defined')
@@ -20,8 +20,10 @@ module.exports = defineConfig({
 
       on('task', {
         getUser({ route }) {
-          const GET_USER = `${DB_URL}/${route}.json`
+          if (!route) throw new Error('Route is required to use this task!')
+          else if (typeof route !== 'string') throw new Error('Route needs to be a string!')
 
+          const GET_USER = `${DB_URL}/${route}.json`
           return new Promise((resolve, reject) => {
             axios
               .get(GET_USER)
