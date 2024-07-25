@@ -6,6 +6,7 @@ import { productList } from '../fixtures/home'
 import LoginPage from '../pages/login.page'
 import HomePage from '../pages/home.page'
 
+
 const rand = Math.floor(Math.random() * productList.length)
 
 describe('Funcionalidade: Home', () => {
@@ -20,14 +21,13 @@ describe('Funcionalidade: Home', () => {
     }
 
     beforeEach(() => {
-        LoginPage.getUser('authzUser').then((getUser) => {
-            LoginPage.doLogin(getUser)
-        })
+        LoginPage.getUser('authzUser')
+            .then((getUser) => LoginPage.doLogin(getUser))
     })
 
     afterEach(() => cy.screenshot())
 
-    it.only('01 Cenário: Visualiza lista de produtos após login', () => {
+    it('01 Cenário: Visualiza lista de produtos após login', () => {
         for (const product of productList) {
             HomePage.displayProductList(product)
         }
