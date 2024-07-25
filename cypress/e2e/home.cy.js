@@ -11,6 +11,12 @@ const rand = Math.floor(Math.random() * productList.length)
 describe('Funcionalidade: Home', () => {
     const product = productList[rand]
 
+    beforeEach(() =>
+        LoginPage.getUser('authzUser')
+            .then((getUser) => LoginPage.doLogin(getUser)))
+    
+    afterEach(() => cy.screenshot())
+
     const newUser = () => {
         return {
             firstName: faker.internet.userName(),
@@ -18,13 +24,6 @@ describe('Funcionalidade: Home', () => {
             zipCode: faker.address.zipCode()
         }
     }
-
-    beforeEach(() => {
-        LoginPage.getUser('authzUser')
-            .then((getUser) => LoginPage.doLogin(getUser))
-    })
-
-    afterEach(() => cy.screenshot())
 
     it('01 Cenário: Visualiza lista de produtos após login', () => {
         for (const product of productList) {
