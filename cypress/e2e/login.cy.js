@@ -7,8 +7,7 @@ describe('Funcionalidade: Autenticação', () => {
 
   beforeEach(() => {
     LoginPage.openLoginPage()
-    LoginPage.getUser('authzUser')
-      .then((response) => user = response)
+    LoginPage.getUser('authzUser').then((response) => user = response)
   })
 
   afterEach(() => cy.screenshot())

@@ -42,7 +42,7 @@ class LoginPage {
     }
 
     getUser(route) {
-        return cy.task('getUser', { route })
+        return cy.task('getUserInTB', { route })
     }
 
     doLogin(user) {
