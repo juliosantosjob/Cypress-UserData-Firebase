@@ -1,9 +1,9 @@
-const { getUser } = require('../../conection-db')
+const { getUser } = require('../../conection-db');
 
 function tasks(on) {
     on('task', {
         getUser
-    })
+    });
 }
 
 module.exports = {
@@ -17,4 +17,4 @@ module.exports = {
      */
 
     tasks
-}
+};

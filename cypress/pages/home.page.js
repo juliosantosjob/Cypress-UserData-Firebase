@@ -1,119 +1,119 @@
 class HomePage {
     
     constructor() {
-        this.buttonAddToCard = '[name*="add-to-cart"]'
-        this.buttonBackToProducts = '[data-test="back-to-products"]'
-        this.buttonCancel = '[data-test="cancel"]'
-        this.buttonCheckout = '#checkout'
-        this.buttonFinish = '[data-test="finish"]'
-        this.buttonKeepShopping = '[data-test="continue-shopping"]'
-        this.buttonRemove = '[data-test*="remove"]'
-        this.buttonShoppingCart = '[data-test="shopping-cart-link"]'
-        this.buttonSubmit = '[type="submit"]'
-        this.fieldCardBadge = '[data-test="shopping-cart-badge"]'
-        this.fieldCartList = '[data-test="cart-list"]'
-        this.fieldCompleteHeader = '[data-test="complete-header"]'
-        this.fieldInventoryItemName = '[data-test="inventory-item-name"]'
-        this.fieldInventoryItemPrice = '[data-test="inventory-item-price"]'
-        this.fieldinventoryItem = '[data-test="inventory-item"]'
-        this.inputFirstName = '[data-test="firstName"]'
-        this.inputLastName = '[data-test="lastName"]'
-        this.inputZipCode = '[data-test="postalCode"]'
-        this.valueProduct = ''
+        this.buttonAddToCard = '[name*="add-to-cart"]';
+        this.buttonBackToProducts = '[data-test="back-to-products"]';
+        this.buttonCancel = '[data-test="cancel"]';
+        this.buttonCheckout = '#checkout';
+        this.buttonFinish = '[data-test="finish"]';
+        this.buttonKeepShopping = '[data-test="continue-shopping"]';
+        this.buttonRemove = '[data-test*="remove"]';
+        this.buttonShoppingCart = '[data-test="shopping-cart-link"]';
+        this.buttonSubmit = '[type="submit"]';
+        this.fieldCardBadge = '[data-test="shopping-cart-badge"]';
+        this.fieldCartList = '[data-test="cart-list"]';
+        this.fieldCompleteHeader = '[data-test="complete-header"]';
+        this.fieldInventoryItemName = '[data-test="inventory-item-name"]';
+        this.fieldInventoryItemPrice = '[data-test="inventory-item-price"]';
+        this.fieldinventoryItem = '[data-test="inventory-item"]';
+        this.inputFirstName = '[data-test="firstName"]';
+        this.inputLastName = '[data-test="lastName"]';
+        this.inputZipCode = '[data-test="postalCode"]';
+        this.valueProduct = '';
     }
 
     addProductToCart(product) {
         cy.contains(this.fieldInventoryItemName, product)
-            .parents(this.fieldinventoryItem).as('product')
+            .parents(this.fieldinventoryItem).as('product');
 
         cy.get('@product')
             .find(this.fieldInventoryItemPrice)
-            .then(($price) => this.valueProduct = $price.text()) 
+            .then(($price) => this.valueProduct = $price.text());
 
         cy.get('@product')
             .find(this.buttonAddToCard)
-            .click()
+            .click();
     }
 
     goToCart() {
         cy.get(this.buttonShoppingCart)
-            .click()
+            .click();
     }
 
     removeProductFromCart(product) {
         cy.contains(this.fieldInventoryItemName, product)
             .parents(this.fieldinventoryItem)
             .find(this.buttonRemove)
-            .click()
+            .click();
     }
 
     doCheckout() {
-        cy.get(this.buttonCheckout).click()
+        cy.get(this.buttonCheckout).click();
     }
 
     formUser(user) {
-        cy.typeOrClear(this.inputFirstName, user.firstName)
-        cy.typeOrClear(this.inputLastName, user.lastName)
-        cy.typeOrClear(this.inputZipCode, user.zipCode)
-        cy.get(this.buttonSubmit).click()
+        cy.typeOrClear(this.inputFirstName, user.firstName, { log: false});
+        cy.typeOrClear(this.inputLastName, user.lastName, { log: false});
+        cy.typeOrClear(this.inputZipCode, user.zipCode, { log: false});
+        cy.get(this.buttonSubmit).click();
     }
 
     finishPurchase() {
-        cy.get(this.buttonFinish).click()
+        cy.get(this.buttonFinish).click();
     }
 
     keepShopping() {
-        cy.get(this.buttonKeepShopping).click()
+        cy.get(this.buttonKeepShopping).click();
     }
 
     cancelPurchase() {
-        cy.get(this.buttonCancel).click()
+        cy.get(this.buttonCancel).click();
     }
 
     goBackHome() {
-        cy.get(this.buttonBackToProducts).click()
-    }
-
-    verifyPurchaseMessage(message) {
-        return cy.contains(this.fieldCompleteHeader, message)
-            .should('be.visible')
-    }
-
-    validadeCheckoutOverview(product) {
-        return cy.wrap(this).then((get) => {
-            cy.contains(this.fieldinventoryItem, product)
-                .should('be.visible')
-            cy.contains(this.fieldInventoryItemPrice, get.valueProduct)
-                .should('be.visible')
-        })
+        cy.get(this.buttonBackToProducts).click();
     }
 
     displayProductList(product) {
         return cy.contains(this.fieldInventoryItemName, product)
             .should('exist')
-            .and('be.visible')
+            .and('be.visible');
+    }
+
+    verifyPurchaseMessage(message) {
+        return cy.contains(this.fieldCompleteHeader, message)
+            .should('be.visible');
+    }
+
+    validadeCheckoutOverview(product) {
+        return cy.wrap(this).then((get) => {
+            cy.contains(this.fieldinventoryItem, product)
+                .should('be.visible');
+            cy.contains(this.fieldInventoryItemPrice, get.valueProduct)
+                .should('be.visible');
+        });
     }
 
     productsOnCart(product) {
         return cy.contains(this.fieldCartList, product)
             .should('exist')
-            .and('be.visible')
+            .and('be.visible');
     }
 
     cartIsEmpty() {
         return cy.get(this.fieldCardBadge)
-            .should('not.exist')
+            .should('not.exist');
     }
 
     doPurchase(product, userInfo) {
-        this.addProductToCart(product)
-        this.goToCart()
-        this.doCheckout()
-        this.formUser(userInfo)
-        this.validadeCheckoutOverview(product)
-        this.finishPurchase()
-        this.verifyPurchaseMessage('Thank you for your order!')
+        this.addProductToCart(product);
+        this.goToCart();
+        this.doCheckout();
+        this.formUser(userInfo);
+        this.validadeCheckoutOverview(product);
+        this.finishPurchase();
+        this.verifyPurchaseMessage('Thank you for your order!');
     }
 }
 
-export default new HomePage()
+export default new HomePage;

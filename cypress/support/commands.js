@@ -7,7 +7,7 @@
  */
 
 Cypress.Commands.add('typeOrClear', (selector, text) => {
-    text === undefined || text === ''
+    text === ''
         ? cy.get(selector).clear()
-        : cy.get(selector).type(text, { log: false })
-})
+        : cy.get(selector).type(text, { log: false });
+});
