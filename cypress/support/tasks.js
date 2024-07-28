@@ -2,9 +2,7 @@ const { getUser } = require('../../conection-db')
 
 function tasks(on) {
     on('task', {
-        getUserInTB({ route }) {
-            return getUser(route)
-        }
+        getUser
     })
 }
 

@@ -6,7 +6,7 @@ if (!process.env.PROJECT_ID) throw new Error('PROJECT_ID is not defined')
 const PROJECT_ID = process.env.PROJECT_ID
 const FB_URL = `https://${PROJECT_ID}.firebaseio.com`
 
-async function getUser(route) {
+async function getUser({ route }) {
     let response
 
     if (!route) {
