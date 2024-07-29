@@ -1,45 +1,34 @@
+import { ELM_LOGIN } from '../elements/login.element';
+
 class LoginPage {
-    
-    constructor() {
-        this.buttonBurgerMenu = '#react-burger-menu-btn';
-        this.buttonLogout = '#logout_sidebar_link';
-        this.buttonSubmit = '#login-button';
-        this.fieldLoginLogo = '[class="login_logo"]';
-        this.fieldMsgError = '[data-test="error"]';
-        this.fieldTitleProducts = '[data-test="title"]';
-        this.inputPassword = '#password';
-        this.inputUsername = '#user-name';
-        this.textTitle = 'Swag Labs';
-        this.textProducts = 'Products';
-    }
 
     openLoginPage() {
         cy.visit('/');
-        cy.contains(this.fieldLoginLogo, this.textTitle)
+        cy.contains(ELM_LOGIN.fieldLoginLogo, ELM_LOGIN.textTitle)
             .should('be.visible');
     }
 
     fillCredents(username, password) {
-        cy.typeOrClear(this.inputUsername, username);
-        cy.typeOrClear(this.inputPassword, password);
+        cy.typeOrClear(ELM_LOGIN.inputUsername, username);
+        cy.typeOrClear(ELM_LOGIN.inputPassword, password);
     }
 
     submit() {
-        cy.get(this.buttonSubmit).click();
+        cy.get(ELM_LOGIN.buttonSubmit).click();
     }
 
     doLogout() {
-        cy.get(this.buttonBurgerMenu).click();
-        cy.get(this.buttonLogout).click();
+        cy.get(ELM_LOGIN.buttonBurgerMenu).click();
+        cy.get(ELM_LOGIN.buttonLogout).click();
     }
 
     atHome() {
-        return cy.contains(this.fieldTitleProducts, this.textProducts)
+        return cy.contains(ELM_LOGIN.fieldTitleProducts, ELM_LOGIN.textProducts)
             .should('be.visible');
     }
 
     verifyError(message) {
-        return cy.contains(this.fieldMsgError, message)
+        return cy.contains(ELM_LOGIN.fieldMsgError, message)
             .should('be.visible');
     }
 

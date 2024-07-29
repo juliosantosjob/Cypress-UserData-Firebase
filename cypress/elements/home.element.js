@@ -1,0 +1,20 @@
+export const ELM_HOME = {
+    buttonAddToCard: '[name*="add-to-cart"]',
+    buttonBackToProducts: '[data-test="back-to-products"]',
+    buttonCancel: '[data-test="cancel"]',
+    buttonCheckout: '#checkout',
+    buttonFinish: '[data-test="finish"]',
+    buttonKeepShopping: '[data-test="continue-shopping"]',
+    buttonRemove: '[data-test*="remove"]',
+    buttonShoppingCart: '[data-test="shopping-cart-link"]',
+    buttonSubmit: '[type="submit"]',
+    fieldCardBadge: '[data-test="shopping-cart-badge"]',
+    fieldCartList: '[data-test="cart-list"]',
+    fieldCompleteHeader: '[data-test="complete-header"]',
+    fieldInventoryItemName: '[data-test="inventory-item-name"]',
+    fieldInventoryItemPrice: '[data-test="inventory-item-price"]',
+    fieldinventoryItem: '[data-test="inventory-item"]',
+    inputFirstName: '[data-test="firstName"]',
+    inputLastName: '[data-test="lastName"]',
+    inputZipCode: '[data-test="postalCode"]'
+};
