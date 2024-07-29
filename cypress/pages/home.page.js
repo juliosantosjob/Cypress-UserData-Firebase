@@ -6,7 +6,7 @@ class HomePage {
         cy.contains(ELM_HOME.fieldInventoryItemName, product)
             .parents(ELM_HOME.fieldinventoryItem).as('product');
 
-        cy.get('@product')
+        cy.get('@product') // Get product price and insert into variable
             .find(ELM_HOME.fieldInventoryItemPrice)
             .invoke('text')
             .as('productPrice');
@@ -32,9 +32,9 @@ class HomePage {
     }
 
     formUser(user) {
-        cy.typeOrClear(ELM_HOME.inputFirstName, user.firstName, { log: false });
-        cy.typeOrClear(ELM_HOME.inputLastName, user.lastName, { log: false });
-        cy.typeOrClear(ELM_HOME.inputZipCode, user.zipCode, { log: false });
+        cy.typeOrClear(ELM_HOME.inputFirstName, user.firstName);
+        cy.typeOrClear(ELM_HOME.inputLastName, user.lastName);
+        cy.typeOrClear(ELM_HOME.inputZipCode, user.zipCode);
         cy.get(ELM_HOME.buttonSubmit).click();
     }
 

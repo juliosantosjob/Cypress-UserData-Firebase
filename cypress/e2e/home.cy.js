@@ -46,7 +46,7 @@ describe('Funcionalidade: Home', () => {
         HomePage.cartIsEmpty();
     });
 
-    it.only('04 Cenário: Fluxo de Finalização de Compra', () => {
+    it('04 Cenário: Fluxo de Finalização de Compra', () => {
         let user = newUser();
 
         HomePage.addProductToCart(product);
