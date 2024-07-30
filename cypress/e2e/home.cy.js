@@ -1,9 +1,9 @@
 /// <reference types='cypress' />
 
 import { mobile, tablet } from '../fixtures/screen-resolutions';
+import { productList } from '../fixtures/itens-home';
 
 import { newUser, getRandomValue } from '../utils/dataGenerators';
-import { productList } from '../fixtures/itens-home';
 
 import LoginPage from '../pages/login.page';
 import HomePage from '../pages/home.page';
