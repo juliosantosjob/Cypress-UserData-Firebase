@@ -1,6 +1,6 @@
 /// <reference types='cypress' />
 
-import { faker } from '@faker-js/faker';
+import { newUser } from '../support/generator';
 import { productList } from '../fixtures/home';
 
 import LoginPage from '../pages/login.page';
@@ -14,20 +14,12 @@ describe('Funcionalidade: Home', () => {
     beforeEach(() => { 
         LoginPage.getUser('authzUser').then((user) => {
             LoginPage.doLogin(user);
-          });
         });
+    });
 
     afterEach(() => {
         cy.screenshot();
     });
-
-    const newUser = () => {
-        return {
-            firstName: faker.internet.userName(),
-            lastName: faker.internet.userName(),
-            zipCode: faker.address.zipCode()
-        };
-    };
 
     it('01 Cenário: Visualiza lista de produtos após login', () => {
         for (const product of productList) {
