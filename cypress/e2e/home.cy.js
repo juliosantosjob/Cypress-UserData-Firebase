@@ -11,9 +11,11 @@ const product = productList[rand];
 
 describe('Funcionalidade: Home', () => {
 
-    beforeEach(() =>
-        LoginPage.getUser('authzUser')
-            .then((getUser) => LoginPage.doLogin(getUser)));
+    beforeEach(() => { 
+        LoginPage.getUser('authzUser').then((user) => {
+            LoginPage.doLogin(user);
+          });
+        });
 
     afterEach(() => {
         cy.screenshot();
