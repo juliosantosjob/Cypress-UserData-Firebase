@@ -1,18 +1,24 @@
-import { 
-    firstName, 
-    lastName, 
-    zipCode 
+import {
+    firstName,
+    lastName,
+    zipCode
 } from '../fixtures/user-data';
 
 /**
  * Gerador de valores aleatórios
  * 
  * @param {*} params 
- * @returns 
+ * @returns {}
  */
 
 const getRandomValue = (params = {}) => {
     let array;
+
+    if (params.hasOwnProperty('array')) {
+        array = params['array'];
+    } else {
+        throw new Error('To use "getRandomValue" you must enter: "array".');
+    }
 
     if (array !== undefined) {
         const randomIndex = Math.floor(Math.random() * array.length);
