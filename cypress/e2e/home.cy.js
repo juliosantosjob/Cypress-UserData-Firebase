@@ -1,10 +1,6 @@
 /// <reference types='cypress' />
 
-import {
-    desktop,
-    mobile,
-    tablet
-} from '../fixtures/screen-resolutions';
+import { mobile, tablet } from '../fixtures/screen-resolutions';
 
 import { newUser, getRandomValue } from '../utils/dataGenerators';
 import { productList } from '../fixtures/itens-home';
@@ -13,6 +9,8 @@ import LoginPage from '../pages/login.page';
 import HomePage from '../pages/home.page';
 
 const product = getRandomValue({ array: productList });
+const smartphone = getRandomValue({ array: mobile });
+const tab = getRandomValue({ array: tablet });
 
 describe('Funcionalidade: Home', () => {
 
@@ -26,7 +24,7 @@ describe('Funcionalidade: Home', () => {
         cy.screenshot();
     });
 
-    it('01 Cenário: Visualiza lista de produtos após login', () => {
+    it.only('01 Cenário: Visualiza lista de produtos após login', () => {
         for (const product of productList) {
             HomePage.displayProductList(product);
         }
@@ -118,17 +116,17 @@ describe('Funcionalidade: Home', () => {
         LoginPage.atHome();
     });
 
+    it('11 Cenário: Realizar compra com de dispositivos mobile', smartphone.viewport, () => {
+        let user = newUser();
 
-    const platforms = [
-        mobile[0]
-    ];
+        HomePage.doPurchase(product, user);
+        HomePage.verifyPurchaseMessage('Thank you for your order!');
+    });
 
-    platforms.forEach(views => {
-        it('11 Cenário: Realizar com pra com de dispositivos mobile', views, () => {
-            let user = newUser();
+    it('12 Cenário: Realizar compra dispositivos do tipo tablet', tab.viewport, () => {
+        let user = newUser();
 
-            HomePage.doPurchase(product, user);
-            HomePage.verifyPurchaseMessage('Thank you for your order!');
-        });
+        HomePage.doPurchase(product, user);
+        HomePage.verifyPurchaseMessage('Thank you for your order!');
     });
 });

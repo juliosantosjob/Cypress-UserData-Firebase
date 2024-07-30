@@ -1,20 +1,92 @@
 {
     "desktop": [
-        { "name": "Dell XPS 15", "viewportWidth": 1440, "viewportHeight": 900 },
-        { "name": "HP Spectre x360", "viewportWidth": 1024, "viewportHeight": 768 },
-        { "name": "MacBook Pro 16", "viewportWidth": 1920, "viewportHeight": 1080 },
-        { "name": "Microsoft Surface Laptop 3", "viewportWidth": 1280, "viewportHeight": 800 }
+        {
+            "name": "Dell XPS 15",
+            "viewport": {
+                "viewportWidth": 1440,
+                "viewportHeight": 900
+            }
+        },
+        {
+            "name": "HP Spectre x360",
+            "viewport": {
+                "viewportWidth": 1024,
+                "viewportHeight": 768
+            }
+        },
+        {
+            "name": "MacBook Pro 16",
+            "viewport": {
+                "viewportWidth": 1920,
+                "viewportHeight": 1080
+            }
+        },
+        {
+            "name": "Microsoft Surface Laptop 3",
+            "viewport": {
+                "viewportWidth": 1280,
+                "viewportHeight": 800
+            }
+        }
     ],
     "mobile": [
-        { "name": "Google Pixel 3", "viewportWidth": 412, "viewportHeight": 847 },
-        { "name": "iPhone 12", "viewportWidth": 390, "viewportHeight": 844 },
-        { "name": "iPhone SE", "viewportWidth": 375, "viewportHeight": 667 },
-        { "name": "Samsung Galaxy S10", "viewportWidth": 360, "viewportHeight": 760 }
+        {
+            "name": "Google Pixel 3",
+            "viewport": {
+                "viewportWidth": 412,
+                "viewportHeight": 847
+            }
+        },
+        {
+            "name": "iPhone 12",
+            "viewport": {
+                "viewportWidth": 390,
+                "viewportHeight": 844
+            }
+        },
+        {
+            "name": "iPhone SE",
+            "viewport": {
+                "viewportWidth": 375,
+                "viewportHeight": 667
+            }
+        },
+        {
+            "name": "Samsung Galaxy S10",
+            "viewport": {
+                "viewportWidth": 360,
+                "viewportHeight": 760
+            }
+        }
     ],
     "tablet": [
-        { "name": "Amazon Fire HD 10", "viewportWidth": 800, "viewportHeight": 1280 },
-        { "name": "Apple iPad Air", "viewportWidth": 820, "viewportHeight": 1180 },
-        { "name": "Apple iPad Pro 11", "viewportWidth": 834, "viewportHeight": 1194 },
-        { "name": "Samsung Galaxy Tab S6", "viewportWidth": 800, "viewportHeight": 1280 }
+        {
+            "name": "Amazon Fire HD 10",
+            "viewport": {
+                "viewportWidth": 800,
+                "viewportHeight": 1280
+            }
+        },
+        {
+            "name": "Apple iPad Air",
+            "viewport": {
+                "viewportWidth": 820,
+                "viewportHeight": 1180
+            }
+        },
+        {
+            "name": "Apple iPad Pro 11",
+            "viewport": {
+                "viewportWidth": 834,
+                "viewportHeight": 1194
+            }
+        },
+        {
+            "name": "Samsung Galaxy Tab S6",
+            "viewport": {
+                "viewportWidth": 800,
+                "viewportHeight": 1280
+            }
+        }
     ]
 }
