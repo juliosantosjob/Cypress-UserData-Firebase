@@ -4,7 +4,7 @@ const { defineConfig } = require('cypress');
 const { allureCypress } = require('allure-cypress/reporter');
 const { tasks } = require('./cypress/utils/tasksRegistry');
 
-const PLATFORM = process.env.APPLICATION_TYPE;
+const PLATFORM = process.env.APPLICATION_TYPE || 'desktop';
 const DEVICE_NAME = process.env.DEVICE_NAME || 'Dell XPS 15';
 const BASE_URL = process.env.BASE_URL;
 
