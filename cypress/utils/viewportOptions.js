@@ -26,14 +26,19 @@ function getViewPortOptions(options, deviceName) {
     return deviceDimensioner['viewport'];
 }
 
-/**
- * Obtem o viewport dos dispositivos salvos no screen-resolutions.json
- * 
- * @param {string} platform
- * @returns {object}
- */
-
-
 module.exports = {
+
+    /**
+     * Obtém as dimensões de tela dos dispositivos armazenadas no arquivo screen-resolutions.json
+     * O parâmetro "options" deve ser uma string que representa a plataforma de dispositivo 
+     * (desktop, mobile ou table). O parâmetro "deviceName" deve ser uma string que representa
+     * o nome do dispositivo. A função retorna um objeto com as dimensões de tela do dispositivo  
+     * solicitado e os salva no arquivo de configuração padrão do cypress.
+     * 
+     * 
+     * @param {string} platform
+     * @returns {object}
+     */
+
     getViewPortOptions
 };
