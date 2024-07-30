@@ -1,19 +1,18 @@
 /// <reference types='cypress' />
 
-import { newUser } from '../support/generator';
+import { newUser, getRandomValue } from '../utils/dataGenerators';
 import { productList } from '../fixtures/home';
 
 import LoginPage from '../pages/login.page';
 import HomePage from '../pages/home.page';
 
-const rand = Math.floor(Math.random() * productList.length);
-const product = productList[rand];
+const product = getRandomValue({ array: productList });
 
 describe('Funcionalidade: Home', () => {
 
-    beforeEach(() => { 
-        LoginPage.getUser('authzUser').then((user) => {
-            LoginPage.doLogin(user);
+    beforeEach(() => {
+        LoginPage.getUser('authzUser').then((authzUser) => {
+            LoginPage.doLogin(authzUser);
         });
     });
 
