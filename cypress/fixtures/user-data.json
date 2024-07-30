@@ -1,0 +1,38 @@
+{
+    "firstName": [
+        "Aiden",
+        "Emma",
+        "Noah",
+        "Olivia",
+        "Liam",
+        "Ava",
+        "Mason",
+        "Sophia",
+        "Ethan",
+        "Isabella"
+    ],
+    "lastName": [
+        "Smith",
+        "Johnson",
+        "Williams",
+        "Jones",
+        "Brown",
+        "Davis",
+        "Miller",
+        "Wilson",
+        "Moore",
+        "Taylor"
+    ],
+    "zipCode": [
+        "10001",
+        "20001",
+        "30301",
+        "40001",
+        "50001",
+        "60601",
+        "70701",
+        "80801",
+        "90001",
+        "10010"
+    ]
+}

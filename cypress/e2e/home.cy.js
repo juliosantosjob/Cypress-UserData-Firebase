@@ -1,7 +1,13 @@
 /// <reference types='cypress' />
 
+import {
+    desktop,
+    mobile,
+    tablet
+} from '../fixtures/screen-resolutions';
+
 import { newUser, getRandomValue } from '../utils/dataGenerators';
-import { productList } from '../fixtures/home';
+import { productList } from '../fixtures/itens-home';
 
 import LoginPage from '../pages/login.page';
 import HomePage from '../pages/home.page';
@@ -107,7 +113,22 @@ describe('Funcionalidade: Home', () => {
         let user = newUser();
 
         HomePage.doPurchase(product, user);
+        HomePage.verifyPurchaseMessage('Thank you for your order!');
         HomePage.goBackHome();
         LoginPage.atHome();
+    });
+
+
+    const platforms = [
+        mobile[0]
+    ];
+
+    platforms.forEach(views => {
+        it('11 Cenário: Realizar com pra com de dispositivos mobile', views, () => {
+            let user = newUser();
+
+            HomePage.doPurchase(product, user);
+            HomePage.verifyPurchaseMessage('Thank you for your order!');
+        });
     });
 });

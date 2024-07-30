@@ -1,21 +1,28 @@
 require('dotenv').config();
 
+const sizes = require('../fixtures/screen-resolutions');
+
 const platform = process.env.APPLICATION_TYPE || 'desktop';
+const deviceName = process.env.DEVICE_NAME || 'Dell XPS 15';
 
-const sizes = {
-    desktop: { width: 1280, height: 720 },  // Desktop
-    mobile: { width: 320, height: 480 },    // Mobile
-    tablet: { width: 768, height: 1024 }    // Tablet
-};
-
-function viewPortOptions(options) {
-    const platform = String(options.toLowerCase());
-
+function setViewPortOptions(options, deviceName) {
+    const platform = options.toLowerCase().toString();
+   
     if (!['desktop', 'mobile', 'table'].includes(platform)) {
         throw new Error(`Invalid argument: "${options}". ` +
             'The options for viewport are: "desktop", "mobile", "tablet".');
     }
-    return sizes[platform];
+
+    const mensureDevice = sizes[platform].find(devices => devices.name === deviceName);
+
+    if (!mensureDevice) {
+        throw new Error(`Could not find device: "${deviceName}"`);
+    }
+
+    return {
+        viewportWidth: mensureDevice[0],
+        viewportHeight: mensureDevice[1]
+    };
 }
 
 /**
@@ -25,4 +32,4 @@ function viewPortOptions(options) {
  * @returns {object}
  */
 
-module.exports = viewPortOptions(platform);
+module.exports = setViewPortOptions(platform, deviceName);

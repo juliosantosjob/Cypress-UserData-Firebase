@@ -1,4 +1,8 @@
-import { faker } from '@faker-js/faker';
+import { 
+    firstName, 
+    lastName, 
+    zipCode 
+} from '../fixtures/user-data';
 
 /**
  * Gerador de valores aleatórios
@@ -37,9 +41,9 @@ const getRandomValue = (params = {}) => {
  */
 
 const newUser = () => ({
-    firstName: faker.name.firstName(),
-    lastName: faker.name.lastName(),
-    zipCode: faker.address.zipCode()
+    firstName: getRandomValue({ array: firstName }),
+    lastName: getRandomValue({ array: lastName }),
+    zipCode: getRandomValue({ array: zipCode })
 });
 
 export {

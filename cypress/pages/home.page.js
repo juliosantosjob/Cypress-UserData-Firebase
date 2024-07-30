@@ -92,7 +92,6 @@ class HomePage {
         this.formUser(userInfo);
         this.validadeCheckoutOverview(product);
         this.finishPurchase();
-        this.verifyPurchaseMessage('Thank you for your order!');
     }
 }
 
