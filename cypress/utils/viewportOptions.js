@@ -1,16 +1,16 @@
 const resolutions = require('../fixtures/screen-resolutions');
 
-function getViewPortOptions(options, deviceName) {
-    if (options === undefined || deviceName === undefined) {
-        throw new Error('The parameters "options" and "deviceName" are required!');
+function getViewPortOptions(platform, deviceName) {
+    if (platform === undefined || deviceName === undefined) {
+        throw new Error('The parameters "platform" and "deviceName" are required!');
     }
 
-    const platform = options.toLowerCase().toString();
+    const context = platform.toLowerCase().toString();
     const possibilities = ['desktop', 'mobile', 'table'];
 
-    if (!possibilities.includes(platform)) {
+    if (!possibilities.includes(context)) {
         throw new Error(
-            `Invalid argument: "${platform}". The valid options ` +
+            `Invalid argument: "${platform}". The valid platform ` +
             `for viewport are: [${possibilities.join(', ')}].`
         );
     }
@@ -29,15 +29,22 @@ function getViewPortOptions(options, deviceName) {
 module.exports = {
 
     /**
-     * Obtém as dimensões de tela dos dispositivos armazenadas no arquivo screen-resolutions.json
-     * O parâmetro "options" deve ser uma string que representa a plataforma de dispositivo 
-     * (desktop, mobile ou table). O parâmetro "deviceName" deve ser uma string que representa
-     * o nome do dispositivo. A função retorna um objeto com as dimensões de tela do dispositivo  
-     * solicitado e os salva no arquivo de configuração padrão do cypress.
+     * A função `getViewPortOptions` obtém as dimensões de tela dos dispositivos salvos no arquivo
+     * `screen-resolutions.json`. Para utilizar e definir o viewport para o teste, passe os 
+     * seguintes parâmetros:
      * 
+     * - `platform`: a plataforma do dispositivo. As opções disponíveis são: "desktop", "mobile" ou
+     *  "tablet".
+     * - `deviceName`: o nome do dispositivo para validação.
      * 
-     * @param {string} platform
-     * @returns {object}
+     * A função retorna um objeto contendo as dimensões de tela do dispositivo solicitado e salva 
+     * essas dimensões no arquivo de configuração padrão do Cypress.
+     * 
+     * Exemplo de retorno: `{ width: 390, height: 844 }`
+     * 
+     * @param {string} platform - A plataforma do dispositivo ("desktop", "mobile", "tablet").
+     * @param {string} deviceName - O nome específico do dispositivo. Exemplo: "HP Spectre x360".
+     * @returns {object} - Um objeto com as dimensões de tela do dispositivo solicitado.
      */
 
     getViewPortOptions
