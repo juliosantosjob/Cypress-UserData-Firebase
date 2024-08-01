@@ -1,4 +1,4 @@
-const { getUser } = require('../../conection-db');
+const { getUser } = require('conections-fb');
 
 function tasks(on) {
     on('task', {
