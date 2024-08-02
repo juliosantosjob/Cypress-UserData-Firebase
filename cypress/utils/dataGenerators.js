@@ -1,8 +1,6 @@
-import {
-    firstName,
-    lastName,
-    zipCode
-} from '../fixtures/user-data';
+import user from '../fixtures/user-data';
+import option from '../fixtures/screen-resolutions';
+import products from '../fixtures/itens-home';
 
 /**
  * Gerador de valores aleatórios
@@ -11,13 +9,13 @@ import {
  * @returns {}
  */
 
-const getRandomValue = (params = {}) => {
+const randValue = (params = {}) => {
     let array;
 
     if (params.hasOwnProperty('array')) {
         array = params['array'];
     } else {
-        throw new Error('To use "getRandomValue" you must enter: "array".');
+        throw new Error('To use "randValue" you must enter: "array".');
     }
 
     if (array !== undefined) {
@@ -34,13 +32,25 @@ const getRandomValue = (params = {}) => {
  * @returns {object}
  */
 
-const newUser = () => ({
-    firstName: getRandomValue({ array: firstName }),
-    lastName: getRandomValue({ array: lastName }),
-    zipCode: getRandomValue({ array: zipCode })
+const getNewUser = () => ({
+    firstName: randValue({ array: user.firstName }),
+    lastName: randValue({ array: user.lastName }),
+    zipCode: randValue({ array: user.zipCode })
 });
 
-export {
-    newUser,
-    getRandomValue
+/**
+ * Gera um novo item aleatório
+ * 
+ * @returns {object}
+ */
+
+const getRandItems = () => ({
+    product: randValue({ array: products.productList }),
+    mobile: randValue({ array: option.mobile }),
+    tablet: randValue({ array: option.tablet })
+});
+
+export default {
+    newUser: getNewUser,
+    randItems: getRandItems
 };
