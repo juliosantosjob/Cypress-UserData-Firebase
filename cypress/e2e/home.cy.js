@@ -109,7 +109,7 @@ describe('Funcionalidade: Home', () => {
         page.login.atHome();
     });
 
-    it('11 Cenário: Realizar compra com de dispositivos mobile',
+    it('11 Cenário: Realizar compra um dispositio mobile',
         item.mobile.viewport, () => {
             let user = data.newUser();
 
@@ -117,7 +117,7 @@ describe('Funcionalidade: Home', () => {
             page.home.verifyPurchaseMessage('Thank you for your order!');
         });
 
-    it('12 Cenário: Realizar compra dispositivos do tipo tablet',
+    it('12 Cenário: Realizar compra com dispositivos do tipo tablet',
         item.tablet.viewport, () => {
             let user = data.newUser();
 
