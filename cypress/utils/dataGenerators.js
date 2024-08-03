@@ -2,53 +2,23 @@ import user from '../fixtures/user-data';
 import option from '../fixtures/screen-resolutions';
 import products from '../fixtures/itens-home';
 
-/**
- * Gerador de valores aleatórios
- * 
- * @param {*} params 
- * @returns {}
- */
+const { randomValueFrom } = require('rand-select');
 
-const randValue = (params = {}) => {
-    let array;
-
-    if (params.hasOwnProperty('array')) {
-        array = params['array'];
-    } else {
-        throw new Error('To use "randValue" you must enter: "array".');
-    }
-
-    if (array !== undefined) {
-        const randomIndex = Math.floor(Math.random() * array.length);
-        return array[randomIndex];
-    } else {
-        throw new Error('Invalid parameters. Use an array or two numbers.');
-    }
+const getNewUser = () => {
+    return ({
+        firstName: randomValueFrom({ array: user.firstName }),
+        lastName: randomValueFrom({ array: user.lastName }),
+        zipCode: randomValueFrom({ array: user.zipCode })
+    });
 };
 
-/**
- * Gera um novo usuário aleatório
- * 
- * @returns {object}
- */
-
-const getNewUser = () => ({
-    firstName: randValue({ array: user.firstName }),
-    lastName: randValue({ array: user.lastName }),
-    zipCode: randValue({ array: user.zipCode })
-});
-
-/**
- * Gera um novo item aleatório
- * 
- * @returns {object}
- */
-
-const getRandItems = () => ({
-    product: randValue({ array: products.productList }),
-    mobile: randValue({ array: option.mobile }),
-    tablet: randValue({ array: option.tablet })
-});
+const getRandItems = () => {
+    return ({
+        product: randomValueFrom({ array: products.productList }),
+        mobile: randomValueFrom({ object: option.mobile }),
+        tablet: randomValueFrom({ object: option.tablet })
+    });
+};
 
 export default {
     newUser: getNewUser,

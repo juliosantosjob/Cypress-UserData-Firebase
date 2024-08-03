@@ -1,7 +1,7 @@
 const resolutions = require('../fixtures/screen-resolutions');
 
 function getViewPortOptions(platform, deviceName) {
-    if (platform === undefined || deviceName === undefined) {
+    if (platform === null || deviceName === null) {
         throw new Error('The parameters "platform" and "deviceName" are required!');
     }
 
@@ -17,7 +17,6 @@ function getViewPortOptions(platform, deviceName) {
 
     const deviceDimensioner = resolutions[platform]
         .find(devices => devices.name === deviceName);
-
 
     if (!deviceDimensioner) {
         throw new Error(`Could not find device: "${deviceName}"`);

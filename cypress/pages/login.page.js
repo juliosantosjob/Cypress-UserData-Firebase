@@ -4,31 +4,31 @@ class LoginPage {
 
     openLoginPage() {
         cy.visit('/');
-        cy.contains(ELM_LOGIN.fieldLoginLogo, ELM_LOGIN.textTitle)
+        cy.contains(ELM_LOGIN.field.loginLogo, ELM_LOGIN.text.title)
             .should('be.visible');
     }
 
     fillCredents(username, password) {
-        cy.typeOrClear(ELM_LOGIN.inputUsername, username);
-        cy.typeOrClear(ELM_LOGIN.inputPassword, password);
+        cy.typeOrClear(ELM_LOGIN.input.username, username);
+        cy.typeOrClear(ELM_LOGIN.input.password, password);
     }
 
     submit() {
-        cy.get(ELM_LOGIN.buttonSubmit).click();
+        cy.get(ELM_LOGIN.button.submit).click();
     }
 
     doLogout() {
-        cy.get(ELM_LOGIN.buttonBurgerMenu).click();
-        cy.get(ELM_LOGIN.buttonLogout).click();
+        cy.get(ELM_LOGIN.button.burgerMenu).click();
+        cy.get(ELM_LOGIN.button.logout).click();
     }
 
     atHome() {
-        return cy.contains(ELM_LOGIN.fieldTitleProducts, ELM_LOGIN.textProducts)
+        return cy.contains(ELM_LOGIN.field.titleProducts, ELM_LOGIN.text.products)
             .should('be.visible');
     }
 
     verifyError(message) {
-        return cy.contains(ELM_LOGIN.fieldMsgError, message)
+        return cy.contains(ELM_LOGIN.field.msgError, message)
             .should('be.visible');
     }
 
@@ -44,4 +44,4 @@ class LoginPage {
     }
 }
 
-export default new LoginPage;
+export default new LoginPage();

@@ -1,12 +1,20 @@
 export const ELM_LOGIN = {
-    buttonBurgerMenu: '#react-burger-menu-btn',
-    buttonLogout: '#logout_sidebar_link',
-    buttonSubmit: '#login-button',
-    fieldLoginLogo: '[class="login_logo"]',
-    fieldMsgError: '[data-test="error"]',
-    fieldTitleProducts: '[data-test="title"]',
-    inputPassword: '#password',
-    inputUsername: '#user-name',
-    textTitle: 'Swag Labs',
-    textProducts: 'Products'
+    button: {
+        burgerMenu: '#react-burger-menu-btn',
+        logout: '#logout_sidebar_link',
+        submit: '#login-button',
+    },
+    field: {
+        loginLogo: '[class="login_logo"]',
+        msgError: '[data-test="error"]',
+        titleProducts: '[data-test="title"]',
+    },
+    input: {
+        password: '#password',
+        username: '#user-name',
+    },
+    text: {
+        title: 'Swag Labs',
+        products: 'Products',
+    }
 };

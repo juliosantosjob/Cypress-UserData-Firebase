@@ -10,10 +10,6 @@ describe('Funcionalidade: Autenticação', () => {
         page.login.getUser('authzUser').then((response) => user = response);
     });
 
-    afterEach(() => {
-        cy.screenshot();
-    });
-
     it('01 Cenário: Login com sucesso', () => {
         page.login.fillCredents(user.username, user.password);
         page.login.submit();

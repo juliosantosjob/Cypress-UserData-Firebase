@@ -13,10 +13,6 @@ describe('Funcionalidade: Home', () => {
         });
     });
 
-    afterEach(() => {
-        cy.screenshot();
-    });
-
     it('01 Cenário: Visualiza lista de produtos após login', () => {
         for (const product of products.productList) {
             page.home.displayProductList(product);
