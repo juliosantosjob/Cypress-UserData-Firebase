@@ -6,8 +6,8 @@ describe('Funcionalidade: Autenticação', () => {
     let user;
 
     beforeEach(() => {
-        page.login.openLoginPage();
         page.login.getUser('authzUser').then((response) => user = response);
+        page.login.openLoginPage();
     });
 
     afterEach(() => cy.screenshot());
