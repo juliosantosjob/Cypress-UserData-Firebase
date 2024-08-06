@@ -37,8 +37,9 @@ O projeto esta configurado para acessar o banco de dados via API usando a task c
 Exemplo:
 
 ```
-BASE_URL=https://www.urlProject.com
-PROJECT_ID=id-project
+BASE_URL=<base url do projeto>
+PROJECT_ID=<id do projeto no firebase>
+DEVICE_NAME=Dell XPS 15
 ```
 
 Realizando o passo anterior você pode executar os testes do projeto, executando o comando:
