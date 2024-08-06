@@ -14,7 +14,7 @@ const getRandItems = () => {
 
     /**
      * Filtro todos os dispositivos pelo tipo 
-     * para obter o mesmos randomicamente.
+     * para obter os mesmos randomicamente.
      */
 
     const desktopDevices = devices.filter(device => device.type.toLowerCase() === 'desktop');
