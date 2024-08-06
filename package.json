@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Desafio Técnico Vox Tecnologia",
   "main": "cypress.config.js",
+
   "scripts": {
     "open": "cypress open",
     "test": "cypress run",

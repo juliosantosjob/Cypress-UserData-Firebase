@@ -1,22 +1,31 @@
 import user from '../fixtures/user-data';
-import option from '../fixtures/screen-resolutions';
-import products from '../fixtures/itens-home';
+import devices from '../fixtures/screen-resolutions';
+import products from '../fixtures/home-items';
 
 const { randomValueFrom } = require('rand-select');
 
-const getNewUser = () => {
-    return ({
-        firstName: randomValueFrom({ array: user.firstName }),
-        lastName: randomValueFrom({ array: user.lastName }),
-        zipCode: randomValueFrom({ array: user.zipCode })
-    });
-};
+const getNewUser = () => ({
+    firstName: randomValueFrom({ array: user.firstName }),
+    lastName: randomValueFrom({ array: user.lastName }),
+    zipCode: randomValueFrom({ array: user.zipCode })
+});
 
 const getRandItems = () => {
+
+    /**
+     * Filtro todos os dispositivos pelo tipo 
+     * para obter o mesmos randomicamente.
+     */
+
+    const desktopDevices = devices.filter(device => device.type.toLowerCase() === 'desktop');
+    const mobileDevices = devices.filter(device => device.type.toLowerCase() === 'mobile');
+    const tabletDevices = devices.filter(device => device.type.toLowerCase() === 'tablet');
+
     return ({
         product: randomValueFrom({ array: products.productList }),
-        mobile: randomValueFrom({ object: option.mobile }),
-        tablet: randomValueFrom({ object: option.tablet })
+        desktop: randomValueFrom({ array: desktopDevices }),
+        mobile: randomValueFrom({ array: mobileDevices }),
+        tablet: randomValueFrom({ array: tabletDevices })
     });
 };
 

@@ -2,7 +2,7 @@
 
 import data from '../utils/dataGenerators';
 import page from '../../pages-instance';
-import products from '../fixtures/itens-home';
+import products from '../fixtures/home-items';
 
 describe('Funcionalidade: Home', () => {
     const item = data.randItems();

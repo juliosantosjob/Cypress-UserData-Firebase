@@ -1,92 +1,98 @@
-{
-    "desktop": [
-        {
-            "name": "Dell XPS 15",
-            "viewport": {
-                "viewportWidth": 1440,
-                "viewportHeight": 900
-            }
-        },
-        {
-            "name": "HP Spectre x360",
-            "viewport": {
-                "viewportWidth": 1024,
-                "viewportHeight": 768
-            }
-        },
-        {
-            "name": "MacBook Pro 16",
-            "viewport": {
-                "viewportWidth": 1920,
-                "viewportHeight": 1080
-            }
-        },
-        {
-            "name": "Microsoft Surface Laptop 3",
-            "viewport": {
-                "viewportWidth": 1280,
-                "viewportHeight": 800
-            }
+[
+    {
+        "name": "Dell XPS 15",
+        "type": "desktop",
+        "viewport": {
+            "viewportWidth": 1440,
+            "viewportHeight": 900
         }
-    ],
-    "mobile": [
-        {
-            "name": "Google Pixel 3",
-            "viewport": {
-                "viewportWidth": 412,
-                "viewportHeight": 847
-            }
-        },
-        {
-            "name": "iPhone 12",
-            "viewport": {
-                "viewportWidth": 390,
-                "viewportHeight": 844
-            }
-        },
-        {
-            "name": "iPhone SE",
-            "viewport": {
-                "viewportWidth": 375,
-                "viewportHeight": 667
-            }
-        },
-        {
-            "name": "Samsung Galaxy S10",
-            "viewport": {
-                "viewportWidth": 360,
-                "viewportHeight": 760
-            }
+    },
+    {
+        "name": "HP Spectre x360",
+        "type": "desktop",
+        "viewport": {
+            "viewportWidth": 1024,
+            "viewportHeight": 768
         }
-    ],
-    "tablet": [
-        {
-            "name": "Amazon Fire HD 10",
-            "viewport": {
-                "viewportWidth": 800,
-                "viewportHeight": 1280
-            }
-        },
-        {
-            "name": "Apple iPad Air",
-            "viewport": {
-                "viewportWidth": 820,
-                "viewportHeight": 1180
-            }
-        },
-        {
-            "name": "Apple iPad Pro 11",
-            "viewport": {
-                "viewportWidth": 834,
-                "viewportHeight": 1194
-            }
-        },
-        {
-            "name": "Samsung Galaxy Tab S6",
-            "viewport": {
-                "viewportWidth": 800,
-                "viewportHeight": 1280
-            }
+    },
+    {
+        "name": "MacBook Pro 16",
+        "type": "desktop",
+        "viewport": {
+            "viewportWidth": 1920,
+            "viewportHeight": 1080
         }
-    ]
-}
+    },
+    {
+        "name": "Microsoft Surface Laptop 3",
+        "type": "desktop",
+        "viewport": {
+            "viewportWidth": 1280,
+            "viewportHeight": 800
+        }
+    },
+    {
+        "name": "Google Pixel 3",
+        "type": "mobile",
+        "viewport": {
+            "viewportWidth": 412,
+            "viewportHeight": 847
+        }
+    },
+    {
+        "name": "iPhone 12",
+        "type": "mobile",
+        "viewport": {
+            "viewportWidth": 390,
+            "viewportHeight": 844
+        }
+    },
+    {
+        "name": "iPhone SE",
+        "type": "mobile",
+        "viewport": {
+            "viewportWidth": 375,
+            "viewportHeight": 667
+        }
+    },
+    {
+        "name": "Samsung Galaxy S10",
+        "type": "mobile",
+        "viewport": {
+            "viewportWidth": 360,
+            "viewportHeight": 760
+        }
+    },
+    {
+        "name": "Amazon Fire HD 10",
+        "type": "tablet",
+        "viewport": {
+            "viewportWidth": 800,
+            "viewportHeight": 1280
+        }
+    },
+    {
+        "name": "Apple iPad Air",
+        "type": "tablet",
+        "viewport": {
+            "viewportWidth": 820,
+            "viewportHeight": 1180
+        }
+    },
+    {
+        "name": "Apple iPad Pro 11",
+        "type": "tablet",
+        "viewport": {
+            "viewportWidth": 834,
+            "viewportHeight": 1194
+        }
+    },
+    {
+        "name": "Samsung Galaxy Tab S6",
+        "type": "tablet",
+        "viewport": {
+            "viewportWidth": 800,
+            "viewportHeight": 1280
+        }
+    }
+]
