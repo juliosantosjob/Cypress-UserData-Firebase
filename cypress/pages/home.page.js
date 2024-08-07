@@ -55,18 +55,18 @@ class HomePage {
     }
 
     displayProductList(product) {
-        return cy.contains(ELM_HOME.field.inventoryItemName, product)
+        cy.contains(ELM_HOME.field.inventoryItemName, product)
             .should('exist')
             .and('be.visible');
     }
 
-    verifyPurchaseMessage(message) {
-        return cy.contains(ELM_HOME.field.completeHeader, message)
+    validateMessage(message) {
+        cy.contains(ELM_HOME.field.completeHeader, message)
             .should('be.visible');
     }
 
     validadeCheckoutOverview(product) {
-        return cy.get('@productPrice').then((price) => {
+        cy.get('@productPrice').then((price) => {
             cy.contains(ELM_HOME.field.inventoryItem, product)
                 .should('be.visible');
             cy.contains(ELM_HOME.field.inventoryItemPrice, price)
@@ -75,13 +75,13 @@ class HomePage {
     }
 
     productsOnCart(product) {
-        return cy.contains(ELM_HOME.field.cartList, product)
+        cy.contains(ELM_HOME.field.cartList, product)
             .should('exist')
             .and('be.visible');
     }
 
     cartIsEmpty() {
-        return cy.get(ELM_HOME.field.cardBadge)
+        cy.get(ELM_HOME.field.cardBadge)
             .should('not.exist');
     }
 

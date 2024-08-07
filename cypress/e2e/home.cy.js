@@ -43,7 +43,7 @@ describe('Funcionalidade: Home', () => {
         page.home.formUser(user);
         page.home.validadeCheckoutOverview(item.product);
         page.home.finishPurchase();
-        page.home.verifyPurchaseMessage('Thank you for your order!');
+        page.home.validateMessage('Thank you for your order!');
     });
 
     it('05 Cenário: Adicionar Produto ao Carrinho e Continuar Comprando', () => {
@@ -102,7 +102,7 @@ describe('Funcionalidade: Home', () => {
         let user = data.newUser();
 
         page.home.doPurchase(item.product, user);
-        page.home.verifyPurchaseMessage('Thank you for your order!');
+        page.home.validateMessage('Thank you for your order!');
         page.home.goBackHome();
         page.login.atHome();
     });
@@ -112,7 +112,7 @@ describe('Funcionalidade: Home', () => {
             let user = data.newUser();
 
             page.home.doPurchase(item.product, user);
-            page.home.verifyPurchaseMessage('Thank you for your order!');
+            page.home.validateMessage('Thank you for your order!');
         });
 
     it('12 Cenário: Realizar compra com dispositivos do tipo tablet',
@@ -120,6 +120,6 @@ describe('Funcionalidade: Home', () => {
             let user = data.newUser();
 
             page.home.doPurchase(item.product, user);
-            page.home.verifyPurchaseMessage('Thank you for your order!');
+            page.home.validateMessage('Thank you for your order!');
         });
 });

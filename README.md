@@ -26,13 +26,13 @@ cd <NOME_DO_PROJETO>
 
 ### Executando os Testes
 
-Antes de executar os testes, crie um arquivo com o nome `.env` na raiz do projeto e adicione a URL da aplicação [Sauce Demo](https://www.saucedemo.com/). Você pode usar o arquivo `.env.example` como referência, ele se encontra na raiz do projeto.
+Antes de executar os testes, crie um arquivo com o nome `.env` na raiz do projeto e adicione à variável `BASE_URL` a base URL da aplicação [Sauce Demo](https://www.saucedemo.com/). Você pode usar o arquivo `.env.example` como referência, ele se encontra na raiz do projeto.
 
 Os usuários do projeto estão configurados no Firebase Realtime Database para evitar hardcoding de dados de homologação no código. 
 
 ![Descrição da Imagem](docs/readme/firebase-users.png)
 
-O projeto esta configurado para acessar o banco de dados via API usando a task cy.task('getUser', {'name_user'}). Para acessar o usario basicamente você precisa te-lo criado no Realtime Database e adicionar o ID na variavel `PROJECT_ID` do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
+O projeto esta configurado para acessar o banco de dados via API usando a task cy.task('getUser', 'name_user'). Para acessar o usario basicamente você precisa te-lo criado no Realtime Database e adicionar o ID na variavel `PROJECT_ID` do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
 
 Exemplo:
 
@@ -41,6 +41,8 @@ BASE_URL=<base url do projeto>
 PROJECT_ID=<id do projeto no firebase>
 DEVICE_NAME=Dell XPS 15
 ```
+
+No exemplo acima, há uma variável chamada `DEVICE_NAME` que deve ser configurada com o nome do dispositivo desejado. Por exemplo, se o dispositivo for `Dell XPS 15`, o projeto será executado com um viewport de `1440x900`. Para consultar as dimensões de todos os dispositivos registrados, acesse o arquivo `screen-resolutions.json` na raiz do projeto. Essa configuração proporciona um controle mais preciso sobre as dimensões dos testes. Se necessário, também é possível ajustar o viewport diretamente pela linha de comando usando o comando `npx cypress open --config viewportWidth=1920,viewportHeight=1080`.
 
 Realizando o passo anterior você pode executar os testes do projeto, executando o comando:
 

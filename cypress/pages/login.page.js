@@ -23,12 +23,12 @@ class LoginPage {
     }
 
     atHome() {
-        return cy.contains(ELM_LOGIN.field.titleProducts, ELM_LOGIN.text.products)
+        cy.contains(ELM_LOGIN.field.titleProducts, ELM_LOGIN.text.products)
             .should('be.visible');
     }
 
     verifyError(message) {
-        return cy.contains(ELM_LOGIN.field.msgError, message)
+        cy.contains(ELM_LOGIN.field.msgError, message)
             .should('be.visible');
     }
 

@@ -35,13 +35,13 @@ describe('Funcionalidade: Autenticação', () => {
     });
 
     it('04 Cenário: Login com username vazio', () => {
-        page.login.fillCredents('', 'invalid_password');
+        page.login.fillCredents('', user.password);
         page.login.submit();
         page.login.verifyError('Epic sadface: Username is required');
     });
 
     it('05 Cenário: Login com password vazio', () => {
-        page.login.fillCredents('standard_user', '');
+        page.login.fillCredents(user.username, '');
         page.login.submit();
         page.login.verifyError('Epic sadface: Password is required');
     });
