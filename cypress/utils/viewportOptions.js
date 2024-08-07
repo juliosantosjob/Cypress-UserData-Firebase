@@ -23,7 +23,7 @@ function getViewPortOptions(deviceName) {
         throw new Error(`Could not find device: "${deviceName}"`);
     }
 
-    return dimensioner.viewport;
+    return dimensioner['viewport'];
 }
 
 /**
