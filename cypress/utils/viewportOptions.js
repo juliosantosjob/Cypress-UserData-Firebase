@@ -12,8 +12,8 @@ const DEVICE_NAME = process.env.DEVICE_NAME || 'Dell XPS 15';
  */
 
 function getViewPortOptions(deviceName) {
-    if (typeof deviceName !== 'string' || !deviceName) {
-        throw new Error(`"${deviceName}" deve ser uma string não vazia`);
+    if (!deviceName) {
+        throw new Error(`The params "${deviceName}" is required`);
     }
 
     const dimensioner = resolutions
@@ -23,7 +23,7 @@ function getViewPortOptions(deviceName) {
         throw new Error(`Could not find device: "${deviceName}"`);
     }
 
-    return dimensioner.viewport;
+    return dimensioner['viewport'];
 }
 
 /**
