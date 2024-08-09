@@ -2,13 +2,19 @@
 
 import creator from '../utils/dataGenerators';
 import page from '../../pages-instance';
+import items from '../fixtures/home-items';
 
 describe('Funcionalidade: Home', () => {
-    const data = creator.generateData();
-    const { product, user } = data.random;
-
+    let authzUser;
+    const { 
+        product, 
+        mobile, 
+        tablet 
+    } = creator.generatingData();
+    
     beforeEach(() => {
-        page.login.getUser('authzUser').then((authzUser) => {
+        page.login.getUser('authzUser').then((getUser) => {
+            authzUser = getUser;
             page.login.doLogin(authzUser);
         });
     });
@@ -16,12 +22,12 @@ describe('Funcionalidade: Home', () => {
     afterEach(() => cy.screenshot());
 
     it('01 Cenário: Visualiza lista de produtos após login', () => {
-        for (const product of data.static.product) {
-            page.home.displayProductList(product);
-        }
+        items.productList.forEach((item) => {
+            page.home.displayProductList(item);
+        });
     });
 
-    it('02 Cenário: Adicionar Produto ao Carrinho', () => {
+    it('02 Cenário: Adicionar Produto ao Carrinho', () => {  
         page.home.addProductToCart(product);
         page.home.goToCart();
         page.home.productsOnCart(product);
@@ -38,7 +44,7 @@ describe('Funcionalidade: Home', () => {
         page.home.addProductToCart(product);
         page.home.goToCart();
         page.home.doCheckout();
-        page.home.formUser(user);
+        page.home.formUser(authzUser);
         page.home.validadeCheckoutOverview(product);
         page.home.finishPurchase();
         page.home.validateMessage('Thank you for your order!');
@@ -52,35 +58,32 @@ describe('Funcionalidade: Home', () => {
     });
 
     it('06 Cenário: Fluxo de compra com nom de usuario em branco', () => {
-        let data = creator.generateData();
-        data.random.user.firstName = '';
+        authzUser.firstName = '';
 
         page.home.addProductToCart(product);
         page.home.goToCart();
         page.home.doCheckout();
-        page.home.formUser(data.random.user);
+        page.home.formUser(authzUser);
         page.login.verifyError('Error: First Name is required');
     });
 
     it('07 Cenário: Fluxo de compra com ultimo nome em branco', () => {
-        let data = creator.generateData();
-        data.random.user.lastName = '';
-        
+        authzUser.lastName = '';
+
         page.home.addProductToCart(product);
         page.home.goToCart();
         page.home.doCheckout();
-        page.home.formUser(data.random.user);
+        page.home.formUser(authzUser);
         page.login.verifyError('Error: Last Name is required');
     });
 
     it('08 Cenário: Fluxo de compra com CEP em branco', () => {
-        let data = creator.generateData();
-        data.random.user.zipCode = '';
+        authzUser.zipCode = '';
 
         page.home.addProductToCart(product);
         page.home.goToCart();
         page.home.doCheckout();
-        page.home.formUser(data.random.user);
+        page.home.formUser(authzUser);
         page.login.verifyError('Error: Postal Code is required');
     });
 
@@ -88,28 +91,28 @@ describe('Funcionalidade: Home', () => {
         page.home.addProductToCart(product);
         page.home.goToCart();
         page.home.doCheckout();
-        page.home.formUser(user);
+        page.home.formUser(authzUser);
         page.home.validadeCheckoutOverview(product);
         page.home.cancelPurchase();
         page.login.atHome();
     });
 
     it('10 Cenário: Realiza a compra e volta para a Home', () => {
-        page.home.doPurchase(product, user);
+        page.home.doPurchase(product, authzUser);
         page.home.validateMessage('Thank you for your order!');
         page.home.goBackHome();
         page.login.atHome();
     });
 
     it('11 Cenário: Realizar compra um dispositio mobile',
-        data.random['mobile'].viewport, () => {
-            page.home.doPurchase(product, user);
+        mobile['viewport'], () => {
+            page.home.doPurchase(product, authzUser);
             page.home.validateMessage('Thank you for your order!');
         });
 
     it('12 Cenário: Realizar compra com dispositivos do tipo tablet',
-        data.random['tablet'].viewport, () => {
-            page.home.doPurchase(product, user);
+        tablet['viewport'], () => {
+            page.home.doPurchase(product, authzUser);
             page.home.validateMessage('Thank you for your order!');
         });
 });

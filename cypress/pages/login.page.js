@@ -8,9 +8,9 @@ class LoginPage {
             .should('be.visible');
     }
 
-    fillCredents(username, password) {
-        cy.typeOrClear(ELM_LOGIN.input.username, username);
-        cy.typeOrClear(ELM_LOGIN.input.password, password);
+    fillCredents(user) {
+        cy.typeOrClear(ELM_LOGIN.input.username, user.username);
+        cy.typeOrClear(ELM_LOGIN.input.password, user.password);
     }
 
     submit() {
@@ -38,7 +38,7 @@ class LoginPage {
 
     doLogin(user) {
         this.openLoginPage();
-        this.fillCredents(user.username, user.password);
+        this.fillCredents(user);
         this.submit();
         this.atHome();
     }

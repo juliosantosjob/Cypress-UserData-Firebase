@@ -3,23 +3,25 @@
 import page from '../../pages-instance';
 
 describe('Funcionalidade: Autenticação', () => {
-    let user;
+    let authzUser;
 
     beforeEach(() => {
-        page.login.getUser('authzUser').then((response) => user = response);
         page.login.openLoginPage();
+        page.login.getUser('authzUser').then(getUser => authzUser = getUser);
     });
 
     afterEach(() => cy.screenshot());
 
     it('01 Cenário: Login com sucesso', () => {
-        page.login.fillCredents(user.username, user.password);
+        page.login.fillCredents(authzUser);
         page.login.submit();
         page.login.atHome();
     });
 
     it('02 Cenário: Login com username inválido', () => {
-        page.login.fillCredents('invalid_user', user.password);
+        authzUser.username = 'invalid_username';
+
+        page.login.fillCredents(authzUser);
         page.login.submit();
         page.login.verifyError(
             'Epic sadface: Username and password do not match any user in this service'
@@ -27,7 +29,9 @@ describe('Funcionalidade: Autenticação', () => {
     });
 
     it('03 Cenário: Login com password inválido', () => {
-        page.login.fillCredents(user.username, 'invalid_password');
+        authzUser.password = 'invalid_password';
+
+        page.login.fillCredents(authzUser);
         page.login.submit();
         page.login.verifyError(
             'Epic sadface: Username and password do not match any user in this service'
@@ -35,33 +39,40 @@ describe('Funcionalidade: Autenticação', () => {
     });
 
     it('04 Cenário: Login com username vazio', () => {
-        page.login.fillCredents('', user.password);
+        authzUser.username = '';
+
+        page.login.fillCredents(authzUser);
         page.login.submit();
         page.login.verifyError('Epic sadface: Username is required');
     });
 
     it('05 Cenário: Login com password vazio', () => {
-        page.login.fillCredents(user.username, '');
+        authzUser.password = '';
+
+        page.login.fillCredents(authzUser);
         page.login.submit();
         page.login.verifyError('Epic sadface: Password is required');
     });
 
     it('06 Cenário: Login com formulário vazio', () => {
-        page.login.fillCredents('', '');
+        authzUser.username = '';
+        authzUser.password = '';
+
+        page.login.fillCredents(authzUser);
         page.login.submit();
         page.login.verifyError('Epic sadface: Username is required');
     });
 
     it('07 Cenário: Login com usuario bloqueado', () => {
         page.login.getUser('lockedUser').then((lockedUser) => {
-            page.login.fillCredents(lockedUser.username, lockedUser.password);
+            page.login.fillCredents(lockedUser);
             page.login.submit();
             page.login.verifyError('Epic sadface: Sorry, this user has been locked out.');
         });
     });
 
     it('08 Cenário: Logout do Usuário ', () => {
-        page.login.doLogin(user);
+        page.login.doLogin(authzUser);
         page.login.doLogout();
         page.login.openLoginPage();
     });
