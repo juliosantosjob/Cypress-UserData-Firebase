@@ -4,25 +4,10 @@ const resolutions = require('../fixtures/screen-resolutions');
 const DEVICE_NAME = process.env.DEVICE_NAME || 'Dell XPS 15';
 
 function getViewPortOptions(deviceName) {
-<<<<<<< HEAD
     if (!deviceName) throw new Error(`The params "${deviceName}" is required`);
-=======
-    if (!deviceName) {
-        throw new Error(`The params "${deviceName}" is required`);
-    }
->>>>>>> a906070201ae6bdb342c670f18e3c39946c0398a
+    const dimensioner = resolutions.find(devices => devices.name === deviceName);
 
-    const dimensioner = resolutions
-        .find(devices => devices.name === deviceName);
-
-<<<<<<< HEAD
     if (!dimensioner) throw new Error(`Could not find device: "${deviceName}"`);
-=======
-    if (!dimensioner) {
-        throw new Error(`Could not find device: "${deviceName}"`);
-    }
-
->>>>>>> a906070201ae6bdb342c670f18e3c39946c0398a
     return dimensioner['viewport'];
 }
 
