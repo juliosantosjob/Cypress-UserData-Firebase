@@ -4,13 +4,7 @@ import products from '../fixtures/home-items';
 
 const { randomValueFrom } = require('rand-select');
 
-const getNewUser = () => ({
-    firstName: randomValueFrom({ array: user.firstName }),
-    lastName: randomValueFrom({ array: user.lastName }),
-    zipCode: randomValueFrom({ array: user.zipCode })
-});
-
-const getRandItems = () => {
+const generateData = () => {
 
     /**
      * Filtro todos os dispositivos pelo tipo 
@@ -22,14 +16,31 @@ const getRandItems = () => {
     const tabletDevices = devices.filter(device => device.type.toLowerCase() === 'tablet');
 
     return ({
-        product: randomValueFrom({ array: products.productList }),
-        desktop: randomValueFrom({ array: desktopDevices }),
-        mobile: randomValueFrom({ array: mobileDevices }),
-        tablet: randomValueFrom({ array: tabletDevices })
+        random: {
+            product: randomValueFrom({ array: products.productList }),
+            desktop: randomValueFrom({ array: desktopDevices }),
+            mobile: randomValueFrom({ array: mobileDevices }),
+            tablet: randomValueFrom({ array: tabletDevices }),
+            user: {
+                firstName: randomValueFrom({ array: user.firstName }),
+                lastName: randomValueFrom({ array: user.lastName }),
+                zipCode: randomValueFrom({ array: user.zipCode })
+            },
+        },
+        static: {
+            product: products.productList,
+            desktop: desktopDevices,
+            mobile: mobileDevices,
+            tablet: tabletDevices,
+            user: {
+                firstName: user.firstName[0],
+                lastName: user.lastName[0],
+                zipCode: user.zipCode[0]
+            }
+        }
     });
 };
 
 export default {
-    newUser: getNewUser,
-    randItems: getRandItems
+    generateData
 };
