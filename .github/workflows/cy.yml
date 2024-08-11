@@ -13,9 +13,9 @@ jobs:
   regression-cypress:
     runs-on: ubuntu-latest
     env: 
-      STAGING: ${secrets.STAGING}
-      DEV: ${secrets.DEV}
-      PROJECT_ID: ${secrets.PROJECT_ID}
+      STAGING: ${{secrets.STAGING}}
+      DEV: ${{secrets.DEV}}
+      PROJECT_ID: ${{secrets.PROJECT_ID}}
       
     steps:
       - name: Checkout 🛎
