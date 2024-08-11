@@ -2,7 +2,7 @@
 
 ### Visão Geral
 
-Este projeto automatiza testes para a aplicação Sauce Demo, focando nas funcionalidades de autenticação e gerenciamento de produtos.
+Este projeto automatiza os testes para a aplicação Sauce Demo, garantindo a qualidade das funcionalidades essenciais, como autenticação e gerenciamento de produtos. O objetivo é assegurar que as interações do usuário e as operações de produto funcionem corretamente e estejam livres de erros.
 
 ## Instalação e Configuração
 
@@ -26,18 +26,31 @@ cd <NOME_DO_PROJETO>
 
 ### Executando os Testes
 
-Antes de executar os testes, crie um arquivo com o nome `.env` na raiz do projeto e adicione à variável `BASE_URL` a base URL da aplicação [Sauce Demo](https://www.saucedemo.com/). Você pode usar o arquivo `.env.example` como referência, ele se encontra na raiz do projeto.
+Antes de executar os testes, crie um arquivo com o nome `.env` na raiz do projeto e adicione à variável `STAGE` a base URL da aplicação [Sauce Demo](https://www.saucedemo.com/). Você pode usar o arquivo `.env.example` como referência, ele se encontra na raiz do projeto. A URL base para os testes é configurada automaticamente. Por padrão, os testes rodam no ambiente `stg`, mas você pode escolher outro ambiente, como `dev`, ajustando a variável de ambiente `ENV`.
+
+Você também pode definir o ambiente diretamente na linha de comando ao executar os testes. Por exemplo:
+
+```sh
+cross-env ENV=dev npm test
+```
+ou
+
+```sh
+cross-env ENV=stg npm test
+```
+### Massa de dados
 
 Os usuários do projeto estão configurados no Firebase Realtime Database para evitar hardcoding de dados de homologação no código. 
 
 ![Descrição da Imagem](docs/readme/firebase-users.png)
 
-O projeto esta configurado para acessar o banco de dados via API usando a task cy.task('getUser', 'name_user'). Para acessar o usario basicamente você precisa te-lo criado no Realtime Database e adicionar o ID na variavel `PROJECT_ID` do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
+O projeto esta configurado para acessar o banco de dados via API usando a task cy.task('getUser', 'name_user'). Para acessar o usario basicamente você precisa te-lo criado no Realtime Database e adicionar o ID na variavel de ambiente `PROJECT_ID` do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
 
 Exemplo:
 
 ```
-BASE_URL=<base url do projeto>
+STAGING=<base url do projeto>
+DEV<base url do projeto>
 PROJECT_ID=<id do projeto no firebase>
 DEVICE_NAME=Dell XPS 15
 ```
@@ -61,11 +74,11 @@ Mas, caso esteja visualizando o projeto no GitHub, basta clicar [aqui](https://j
 
 ### Contato
 
-Para mais informações ou dúvidas, você entre em contato comigo :)
+Para mais informações ou dúvidas, você entre pode entrar em contato comigo! 😉
 
- [<img src="https://img.shields.io/badge/linkedin-%230077B5.svg?&style=for-the-badge&logo=linkedin&logoColor=white" />](https://www.linkedin.com/in/julio-santos-43428019b)
- [<img src = "https://img.shields.io/badge/instagram-%23E4405F.svg?&style=for-the-badge&logo=instagram&logoColor=white">](https://www.instagram.com/juli0sts/)
- [<img src = "https://img.shields.io/badge/facebook-%231877F2.svg?&style=for-the-badge&logo=facebook&logoColor=white">](https://www.facebook.com/profile.php?id=100003793058455)
-<a href="mailto:julio958214@gmail.com"><img src="https://img.shields.io/badge/-Gmail-%23333?style=for-the-badge&logo=gmail&logoColor=white" target="_blank">
-  </a> 
+[![Email](https://img.shields.io/badge/Email-%23D14836.svg?logo=gmail&logoColor=white)](mailto:julio958214@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/julio-santos-43428019b)
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://www.facebook.com/profile.php?id=100003793058455) 
+[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/oficial_juliosantos/) 
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/julio.saantos199) 
 
