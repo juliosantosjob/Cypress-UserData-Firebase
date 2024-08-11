@@ -13,9 +13,9 @@ jobs:
   regression-cypress:
     runs-on: ubuntu-latest
     env: 
-      BASE_URL: ${{ secrets.BASE_URL }}
-      PROJECT_ID: ${{ secrets.PROJECT_ID }}
-      DEBUG: '@cypress/github-action'
+      STAGING: ${secrets.STAGING}
+      DEV: ${secrets.DEV}
+      PROJECT_ID: ${secrets.PROJECT_ID}
       
     steps:
       - name: Checkout 🛎
