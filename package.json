@@ -10,13 +10,12 @@
     "allure:generate": "allure generate allure-results --clean",
     "allure:history": "if exist allure-report/history move allure-report/history allure-results/history",
     "allure:clear": "if exist allure-results rmdir /s /q allure-results && if exist allure-report rmdir /s /q allure-report",
-    "allure:test": "npm run allure:clear && npm run allure:generate && npx cypress run && npm run allure:history && npm run allure:open",
+    "allure:test": "npm run allure:clear && npm run allure:generate && npm run test && npm run allure:history && npm run allure:open",
     "allure:open": "npx allure serve allure-results",
     "open:stg": "cross-env ENV=stg npx cypress open ",
     "open:dev": "cross-env ENV=dev npx cypress open",
-    "test:run_one": "npx cypress run --spec cypress/e2e/home.cy.js",
-    "test:run_two": "npx cypress run --spec cypress/e2e/login.cy.js",
-    "test:parallel": "cross-env ENV=stg npm-run-all --parallel test:run_one test:run_two"
+    "test:stg": "cross-env ENV=stg npx cypress run",
+    "test:dev": "cross-env ENV=dev npx cypress run"
   },
   "author": "Julio Santos",
   "license": "ISC",
