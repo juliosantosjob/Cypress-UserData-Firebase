@@ -3,7 +3,7 @@ require('dotenv').config();
 const { defineConfig } = require('cypress');
 const { allureCypress } = require('allure-cypress/reporter');
 const { setNewViewPort } = require('./cypress/utils/viewportOptions');
-const { tasks } = require('./cypress/utils/tasksRegistry');
+const { tasksRegistry } = require('./cypress/utils/tasksRegistry');
 const { setupEnv } = require('./cypress/utils/enviroments');
 
 module.exports = defineConfig({
@@ -13,7 +13,7 @@ module.exports = defineConfig({
             setNewViewPort(config);
             setupEnv(config);
             allureCypress(on);
-            tasks(on);
+            tasksRegistry(on);
 
             return config;
         }

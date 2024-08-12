@@ -1,6 +1,6 @@
 const { getUser } = require('conections-fb');
 
-function tasks(on) {
+function tasksRegistry(on) {
     on('task', {
         getUser
     });
@@ -16,5 +16,5 @@ module.exports = {
      * @param {*} on 
      */
 
-    tasks
+    tasksRegistry
 };
