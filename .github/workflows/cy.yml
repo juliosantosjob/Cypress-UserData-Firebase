@@ -36,10 +36,7 @@ jobs:
         with:
           version: 'latest'
 
-      - name: Start Docker Compose
-        run: docker-compose -f docker-compose.yml up -d
-
-      - name: Run Cypress Tests 🧪
+      - name: Run Tests With Docker
         uses: cypress-io/github-action@v5
         with:
           wait-on-timeout: 60
