@@ -30,7 +30,7 @@ jobs:
         uses: docker/setup-buildx-action@v3
 
       - name: Run Tests With Docker 🐳
-        run: docker-compose up e2e-chrome e2e-firefox e2e-edge e2e-electron
+        run: docker-compose up -d e2e-chrome e2e-firefox e2e-edge e2e-electron
 
       - name: Load test report history 📁
         uses: actions/checkout@v3
