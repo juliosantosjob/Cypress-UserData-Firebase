@@ -2,8 +2,6 @@ services:
   e2e-chrome:
     build: .
     command: "-b chrome"
-    env_file:
-      - .env
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -16,8 +14,6 @@ services:
   e2e-firefox:
     build: .
     command: "-b firefox -c video=false"
-    env_file:
-      - .env
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -30,8 +26,6 @@ services:
   e2e-edge:
     build: .
     command: "-b edge"
-    env_file:
-      - .env
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -43,8 +37,6 @@ services:
 
   e2e-electron:
     build: .
-    env_file:
-      - .env
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
