@@ -28,9 +28,11 @@ jobs:
 
       - name: Install Docker and Docker Compose
         run: |
-          sudo apt-get update
-          sudo apt-get install -y docker.io
-          sudo apt-get install -y docker-compose
+          sudo apt update
+          sudo apt install apt-transport-https ca-certificates curl software-properties-common
+          curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - && sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+          sudo apt update
+          sudo apt install docker-ce
 
       - name: Run docker-compose 🐳
         run: docker-compose up -d e2e-chrome e2e-firefox e2e-edge e2e-electron
