@@ -36,6 +36,11 @@ jobs:
         with:
           version: 'latest'
 
+      - name: Verify Docker and Docker Compose Installation
+        run: |
+          docker --version
+          docker-compose --version
+
       - name: Run Tests With Docker
         uses: cypress-io/github-action@v5
         with:
