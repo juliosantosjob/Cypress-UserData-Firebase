@@ -1,5 +1,5 @@
 // Importe allure plugin
-import 'allure-cypress/commands';
+import "allure-cypress/commands";
 
 // Importe cypress commands
-import './commands';
+import "./commands";

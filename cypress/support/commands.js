@@ -6,8 +6,8 @@
  * @param {string} text
  */
 
-Cypress.Commands.add('typeOrClear', (selector, text) => {
-    text === ''
+Cypress.Commands.add("typeOrClear", (selector, text) => {
+    text === ""
         ? cy.get(selector).clear()
         : cy.get(selector).type(text, { log: false });
 });

@@ -5,7 +5,6 @@ on:
   pull_request:
     branches:
       - 'main'
-
   schedule:
     - cron: "0 12,20 * * 1-5"
 
@@ -13,25 +12,39 @@ jobs:
   regression-cypress:
     runs-on: ubuntu-latest
     env: 
-      STAGING: ${{secrets.STAGING}}
-      DEV: ${{secrets.DEV}}
-      PROJECT_ID: ${{secrets.PROJECT_ID}}
+      STAGING: ${{ secrets.STAGING }}
+      DEV: ${{ secrets.DEV }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
       
+    services:
+      docker:
+        image: docker:20.10.7
+        options: --privileged
+
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
-      - name: Install dependencies
+      - name: Install dependencies 📦
         run: npm install
 
-      - name: Verification with eslint
+      - name: Verification with eslint 🔎
         run: npm run lint
+
+      - name: Set up Docker Compose
+        uses: docker/setup-buildx-action@v2
+        with:
+          version: 'latest'
+
+      - name: Start Docker Compose
+        run: docker-compose -f docker-compose.yml up -d
 
       - name: Run Cypress Tests 🧪
         uses: cypress-io/github-action@v5
         with:
           wait-on-timeout: 60
-          start: npm run test:stg
+          start: |
+            docker-compose up -d e2e-chrome e2e-firefox e2e-edge e2e-electron
 
       - name: Load test report history
         uses: actions/checkout@v3

@@ -1,11 +1,11 @@
-import { ELM_LOGIN } from '../elements/login.element';
+import { ELM_LOGIN } from "../elements/login.element";
 
 class LoginPage {
 
     openLoginPage() {
-        cy.visit('/');
+        cy.visit("/");
         cy.contains(ELM_LOGIN.field.loginLogo, ELM_LOGIN.text.title)
-            .should('be.visible');
+            .should("be.visible");
     }
 
     fillCredents(user) {
@@ -24,16 +24,16 @@ class LoginPage {
 
     atHome() {
         cy.contains(ELM_LOGIN.field.titleProducts, ELM_LOGIN.text.products)
-            .should('be.visible');
+            .should("be.visible");
     }
 
     verifyError(message) {
         cy.contains(ELM_LOGIN.field.msgError, message)
-            .should('be.visible');
+            .should("be.visible");
     }
 
     getUser(route) {
-        return cy.task('getUser', route);
+        return cy.task("getUser", route);
     }
 
     doLogin(user) {

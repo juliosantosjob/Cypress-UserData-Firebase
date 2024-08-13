@@ -3,7 +3,7 @@ import products from '../fixtures/home-items';
 
 const { randomValueFrom } = require('rand-select');
 
-const generatingData = () => {
+const randomData = () => {
 
     /**
      * Filtro todos os dispositivos pelo tipo 
@@ -23,5 +23,5 @@ const generatingData = () => {
 };
 
 export default {
-    generatingData
+    randomData
 };

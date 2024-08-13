@@ -1,7 +1,7 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const resolutions = require('../fixtures/screen-resolutions');
-const DEVICE_NAME = process.env.DEVICE_NAME || 'Dell XPS 15';
+const resolutions = require("../fixtures/screen-resolutions");
+const DEVICE_NAME = process.env.DEVICE_NAME || "Dell XPS 15";
 
 function getViewPortOptions(deviceName) {
     if (!deviceName) {
@@ -19,14 +19,13 @@ function getViewPortOptions(deviceName) {
 
 function setNewViewPort(config) {
     if (!config) {
-        throw new Error('The config object is required');
+        throw new Error("The \"config\" object is required");
     }
 
-    const options = getViewPortOptions(DEVICE_NAME);
-    config.viewportWidth = options.viewportWidth;
-    config.viewportHeight = options.viewportHeight;
-
-    return config;
+    const { viewportWidth, viewportHeight } = getViewPortOptions(DEVICE_NAME);
+    
+    config.viewportWidth = viewportWidth;
+    config.viewportHeight = viewportHeight;
 }
 
 module.exports = {
@@ -43,8 +42,9 @@ module.exports = {
     /**
      * Atualiza a configuração da viewport para um dispositivo.
      * 
-     * @param {object} config - Configuração a ser atualizada.
-     * @returns {object} - Configuração atualizada.
+     * @param {object} config - Objeto de configuração do cypress.
+     * @returns {object} - Traz um nova configuração de viewport.
+     * @throws {Error} - Caso o objeto config seja null.
      */
     setNewViewPort
 };

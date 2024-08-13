@@ -1,17 +1,17 @@
-import { ELM_HOME } from '../elements/home.element.js';
+import { ELM_HOME } from "../elements/home.element.js";
 
 class HomePage {
 
     addProductToCart(product) {
         cy.contains(ELM_HOME.field.inventoryItemName, product)
-            .parents(ELM_HOME.field.inventoryItem).as('product');
+            .parents(ELM_HOME.field.inventoryItem).as("product");
 
-        cy.get('@product') // Get product price and insert into variable
+        cy.get("@product") // Get product price and insert into variable
             .find(ELM_HOME.field.inventoryItemPrice)
-            .invoke('text')
-            .as('productPrice');
+            .invoke("text")
+            .as("productPrice");
 
-        cy.get('@product')
+        cy.get("@product")
             .find(ELM_HOME.button.addToCard)
             .click();
     }
@@ -56,33 +56,33 @@ class HomePage {
 
     displayProductList(product) {
         cy.contains(ELM_HOME.field.inventoryItemName, product)
-            .should('exist')
-            .and('be.visible');
+            .should("exist")
+            .and("be.visible");
     }
 
     validateMessage(message) {
         cy.contains(ELM_HOME.field.completeHeader, message)
-            .should('be.visible');
+            .should("be.visible");
     }
 
     validadeCheckoutOverview(product) {
-        cy.get('@productPrice').then((price) => {
+        cy.get("@productPrice").then((price) => {
             cy.contains(ELM_HOME.field.inventoryItem, product)
-                .should('be.visible');
+                .should("be.visible");
             cy.contains(ELM_HOME.field.inventoryItemPrice, price)
-                .should('be.visible');
+                .should("be.visible");
         });
     }
 
     productsOnCart(product) {
         cy.contains(ELM_HOME.field.cartList, product)
-            .should('exist')
-            .and('be.visible');
+            .should("exist")
+            .and("be.visible");
     }
 
     cartIsEmpty() {
         cy.get(ELM_HOME.field.cardBadge)
-            .should('not.exist');
+            .should("not.exist");
     }
 
     doPurchase(product, userInfo) {

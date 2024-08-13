@@ -1,9 +1,9 @@
 function setupEnv(config) {
     if (!config) {
-        throw new Error('The "config" object is required');
+        throw new Error("The \"config\" object is required");
     }
 
-    const enviroment = process.env.ENV || 'stg';
+    const enviroment = process.env.ENV || "stg";
     const hosts = {
         stg: process.env.STAGING,
         dev: process.env.DEV
