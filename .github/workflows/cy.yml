@@ -29,13 +29,14 @@ jobs:
       - name: Set up Docker
         uses: docker/setup-buildx-action@v3
 
-      - name: Run docker-compose
+      - name: Run docker-compose 🐳
         uses: hoverkraft-tech/compose-action@v2.0.1
         with:
           compose-file: "./docker-compose.yml"
-
-      - name: Run Tests With Docker 🐳
-        run: docker-compose up -d e2e-chrome e2e-firefox e2e-edge e2e-electron
+    
+      - name: Execute tests in the running services
+        run: |
+          docker-compose up -d e2e-chrome e2e-firefox e2e-edge e2e-electron
 
       - name: Load test report history 📁
         uses: actions/checkout@v3
