@@ -1,7 +1,7 @@
-import devices from '../fixtures/screen-resolutions';
-import products from '../fixtures/home-items';
+import devices from "../fixtures/screen-resolutions";
+import products from "../fixtures/home-items";
 
-const { randomValueFrom } = require('rand-select');
+const { randomValueFrom } = require("rand-select");
 
 const randomData = () => {
 
@@ -10,9 +10,9 @@ const randomData = () => {
      * para obter os mesmos randomicamente.
      */
 
-    const desktopDevices = devices.filter(device => device.type.toLowerCase() === 'desktop');
-    const mobileDevices = devices.filter(device => device.type.toLowerCase() === 'mobile');
-    const tabletDevices = devices.filter(device => device.type.toLowerCase() === 'tablet');
+    const desktopDevices = devices.filter(device => device.type.toLowerCase() === "desktop");
+    const mobileDevices = devices.filter(device => device.type.toLowerCase() === "mobile");
+    const tabletDevices = devices.filter(device => device.type.toLowerCase() === "tablet");
 
     return ({
         product: randomValueFrom({ array: products.productList }),

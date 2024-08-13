@@ -6,7 +6,7 @@
   "scripts": {
     "open": "cypress open",
     "test": "cypress run",
-    "lint": "npx eslint cypress",
+    "lint": "npx eslint",
     "allure:generate": "allure generate allure-results --clean",
     "allure:history": "if exist allure-report/history move allure-report/history allure-results/history",
     "allure:clear": "if exist allure-results rmdir /s /q allure-results && if exist allure-report rmdir /s /q allure-report",
