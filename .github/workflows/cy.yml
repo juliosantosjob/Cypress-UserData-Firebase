@@ -11,23 +11,26 @@ on:
 jobs:
   regression-cypress:
     runs-on: ubuntu-latest
-    env: 
-      STAGING: ${{ secrets.STAGING }}
-      DEV: ${{ secrets.DEV }}
-      PROJECT_ID: ${{ secrets.PROJECT_ID }}
-
     steps:
       - name: Checkout 🔒
         uses: actions/checkout@v4
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v3
+
+      - name: Run docker-compose
+        uses: hoverkraft-tech/compose-action@v2.0.1
+        with:
+          compose-file: "./docker-compose.yml"
+
+      - name: Verify Docker Compose version
+        run: docker-compose --version
 
       - name: Install dependencies 📦
         run: npm install
 
       - name: Verification with eslint 🔎
         run: npm run lint
-
-      - name: Set up Docker Buildx 🔧
-        uses: docker/setup-buildx-action@v3
 
       - name: Run Tests With Docker 🐳
         run: docker-compose up -d e2e-chrome e2e-firefox e2e-edge e2e-electron
