@@ -15,6 +15,7 @@ jobs:
       DEV: ${{secrets.DEV}}
       STAGING: ${{secrets.STAGING}}
       PROJECT_ID: ${{secrets.PROJECT_ID}}
+      DEVICE_NAME: 'Dell XPS 15'
       
     steps:
       - name: Checkout 🛎
@@ -34,11 +35,11 @@ jobs:
             sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
             sudo chmod +x /usr/local/bin/docker-compose
             docker-compose --version
-  
+
       - name: Build and run Docker Compose
         run: |
             docker-compose up --build
-
+  
       - name: Install dependencies 📦
         run: npm install
 
