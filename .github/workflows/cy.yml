@@ -47,7 +47,10 @@ jobs:
         run: npm run lint
 
       - name: Run docker-compose 🐳
-        run: docker-compose up e2e-chrome e2e-firefox e2e-edge e2e-electron
+        run: docker-compose up --abort-on-container-exit e2e-chrome e2e-firefox e2e-edge e2e-electron
+
+      - name: logs docker-compose 📝
+        run: docker-compose logs
     
       - name: Load test report history 📁
         uses: actions/checkout@v3
