@@ -12,8 +12,8 @@ jobs:
   cypress-run:
     runs-on: ubuntu-latest
     env: 
-      STAGING: ${{secrets.STAGING}}
       DEV: ${{secrets.DEV}}
+      STAGING: ${{secrets.STAGING}}
       PROJECT_ID: ${{secrets.PROJECT_ID}}
       
     steps:
@@ -29,9 +29,14 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
+      - name: Install Docker Compose
+        run: |
+            sudo apt-get update
+            sudo apt-get install docker-compose-plugin
+  
       - name: Build and run Docker Compose
         run: |
-          docker-compose up --build
+            docker-compose up --build
 
       - name: Install dependencies 📦
         run: npm install
