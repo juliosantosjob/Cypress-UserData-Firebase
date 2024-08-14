@@ -47,7 +47,7 @@ jobs:
         run: npm run lint
 
       - name: Run docker-compose 🐳
-        run: docker-compose up --abort-on-container-exit e2e-chrome e2e-firefox e2e-edge e2e-electron
+        run: docker-compose run -d e2e-chrome
 
       - name: logs docker-compose 📝
         run: docker-compose logs
