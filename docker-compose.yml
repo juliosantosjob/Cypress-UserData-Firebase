@@ -1,7 +1,7 @@
 services:
   e2e-chrome:
     build: .
-    command: "-d chrome"
+    command: "-b chrome"
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -13,7 +13,7 @@ services:
 
   e2e-firefox:
     build: .
-    command: "-d firefox"
+    command: "-b firefox"
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -25,7 +25,7 @@ services:
 
   e2e-edge:
     build: .
-    command: "-d edge"
+    command: "-b edge"
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
