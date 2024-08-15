@@ -36,5 +36,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
-      - name: Build and run Docker Compose for all browsers
-        run: docker-compose up -d e2e-chrome e2e-firefox e2e-edge e2e-electron
+      - name: Build and run Docker Compose
+        run: docker-compose up -d
+  
+      - name: Run Cypress Tests
+        run: |
+            docker-compose exec e2e-chrome npm run test:stg
+            docker-compose exec e2e-firefox npm run test:stg
+            docker-compose exec e2e-edge npm run test:stg
+            docker-compose exec e2e-electron npm run test:stg
