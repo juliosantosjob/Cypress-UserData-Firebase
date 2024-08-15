@@ -5,7 +5,7 @@ const { tasksRegistry } = require("./cypress/utils/tasksRegistry");
 const { setupEnv } = require("./cypress/utils/enviroments");
 
 module.exports = defineConfig({
-    chromeWebSecurity: false,
+    chromeWebSecurity: true,
     e2e: {
         setupNodeEvents(on, config) {
             setNewViewPort(config);

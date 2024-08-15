@@ -1,7 +1,7 @@
 services:
   e2e-chrome:
     build: .
-    command: ["--browser", "chrome"]
+    command: ["npm", "run", "test:stg", "--browser", "chrome"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -13,7 +13,7 @@ services:
 
   e2e-edge:
     build: .
-    command: ["--browser", "chrome"]
+    command: ["npm", "run", "test:stg", "--browser", "edge"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -25,7 +25,7 @@ services:
 
   e2e-electron:
     build: .
-    command: ["--browser", "chrome"]
+    command: ["npm", "run", "test:stg", "--browser", "electron"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
