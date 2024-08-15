@@ -36,10 +36,10 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y docker-compose
 
-      - name: Build and run Docker Compose
+      - name: Build Docker Compose
         run: docker-compose up -d
   
-      - name: Run Cypress Tests
+      - name: Run testes
         run: |
           docker-compose run e2e-chrome
           docker-compose run e2e-firefox

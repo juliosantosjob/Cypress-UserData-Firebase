@@ -1,48 +1,48 @@
 services:
   e2e-chrome:
     build: .
-    command: ["--browser", "chrome"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - BROWSER=chrome
     volumes:
       - ./artifacts/chrome/videos:/e2e/cypress/videos
       - ./artifacts/chrome/screenshots:/e2e/cypress/screenshots
 
   e2e-firefox:
     build: .
-    command: ["--browser", "firefox"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - BROWSER=firefox
     volumes:
       - ./artifacts/firefox/videos:/e2e/cypress/videos
       - ./artifacts/firefox/screenshots:/e2e/cypress/screenshots
 
   e2e-edge:
     build: .
-    command: ["--browser", "edge"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - BROWSER=edge
     volumes:
       - ./artifacts/edge/videos:/e2e/cypress/videos
       - ./artifacts/edge/screenshots:/e2e/cypress/screenshots    
 
   e2e-electron:
     build: .
-    command: ["--browser", "electron"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - BROWSER=electron
     volumes:
       - ./artifacts/electron/videos:/e2e/cypress/videos
       - ./artifacts/electron/screenshots:/e2e/cypress/screenshots

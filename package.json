@@ -13,7 +13,9 @@
     "open:stg": "cross-env ENV=stg npx cypress open ",
     "open:dev": "cross-env ENV=dev npx cypress open",
     "test:stg": "cross-env ENV=stg npx cypress run",
-    "test:dev": "cross-env ENV=dev npx cypress run"
+    "test:dev": "cross-env ENV=dev npx cypress run",
+    "run:docker": "cross-env ENV=stg npx cypress run --browser $BROWSER",
+    "open:docker": "cross-env ENV=stg npx cypress open --browser $BROWSER"
   },
   "author": "Julio Santos",
   "license": "ISC",
