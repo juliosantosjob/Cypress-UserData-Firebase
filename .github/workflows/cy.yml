@@ -11,67 +11,23 @@ on:
 jobs:
   cypress-run:
     runs-on: ubuntu-latest
-    env: 
-      DEV: ${{secrets.DEV}}
-      STAGING: ${{secrets.STAGING}}
-      PROJECT_ID: ${{secrets.PROJECT_ID}}
-      DEVICE_NAME: 'Dell XPS 15'
-      
+    timeout-minutes: 5
+    env:
+      STAGING: ${{ secrets.STAGING }}
+      DEV: ${{ secrets.DEV }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
+      DEVICE_NAME: ${{ secrets.DEVICE_NAME }}
+
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-
-      - name: Log in to Docker Hub
+      - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
-      - name: Install Docker Compose
-        run: |
-            sudo curl -L "https://github.com/docker/compose/releases/download/v2.5.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose 
-            sudo chmod +x /usr/local/bin/docker-compose
-            docker-compose --version
+          username: 'juliosantosjob'
+          password: '@Ju63781426'
 
       - name: Build and run Docker Compose
         run: |
-            docker-compose up --build
-  
-      - name: Install dependencies 📦
-        run: npm install
-
-      - name: Verification with eslint 🔎
-        run: npm run lint
-
-      - name: Run docker-compose 🐳
-        run: docker-compose run -d e2e-chrome
-
-      - name: logs docker-compose 📝
-        run: docker-compose logs
-    
-      - name: Load test report history 📁
-        uses: actions/checkout@v3
-        if: always()
-        continue-on-error: true
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Build test report
-        uses: simple-elf/allure-report-action@v1.7
-        if: always()
-        with:
-          gh_pages: gh-pages
-          allure_history: allure-history
-          allure_results: allure-results
-
-      - name: Publish test report
-        uses: peaceiris/actions-gh-pages@v3
-        if: always()
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: gh-pages
-          publish_dir: allure-history
+          docker-compose up --build --abort-on-container-exit
