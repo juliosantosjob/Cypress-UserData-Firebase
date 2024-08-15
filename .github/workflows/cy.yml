@@ -22,6 +22,12 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v3
 
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+
       - name: Login to DockerHub
         uses: docker/login-action@v2
         with:
