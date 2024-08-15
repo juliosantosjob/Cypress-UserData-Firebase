@@ -40,4 +40,8 @@ jobs:
         run: docker-compose up -d
   
       - name: Run Cypress Tests
-        run: docker-compose run e2e-chrome
+        run: |
+          docker-compose run e2e-chrome
+          docker-compose run e2e-firefox
+          docker-compose run e2e-edge
+          docker-compose run e2e-electron

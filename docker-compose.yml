@@ -37,6 +37,7 @@ services:
 
   e2e-electron:
     build: .
+    command: "--browser electron"
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
