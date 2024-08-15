@@ -4,8 +4,6 @@
   "description": "Desafio Técnico Vox Tecnologia",
   "main": "cypress.config.js",
   "scripts": {
-    "open": "cypress open",
-    "test": "cypress run",
     "lint": "npx eslint",
     "allure:generate": "allure generate allure-results --clean",
     "allure:history": "if exist allure-report/history move allure-report/history allure-results/history",
@@ -15,8 +13,7 @@
     "open:stg": "cross-env ENV=stg npx cypress open ",
     "open:dev": "cross-env ENV=dev npx cypress open",
     "test:stg": "cross-env ENV=stg npx cypress run",
-    "test:dev": "cross-env ENV=dev npx cypress run",
-    "test:docker": "npx cypress run --env ENV=stg"
+    "test:dev": "cross-env ENV=dev npx cypress run"
   },
   "author": "Julio Santos",
   "license": "ISC",

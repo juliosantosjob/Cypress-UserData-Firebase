@@ -3,12 +3,17 @@ function setupEnv(config) {
         throw new Error("The \"config\" object is required");
     }
 
-    const enviroment = process.env.ENV || "stg";
-    const hosts = {
-        stg: process.env.STAGING,
-        dev: process.env.DEV
-    };
-    
+    const enviroment = process.env.ENV;
+
+    if (!process.env.ENV) {
+        throw new Error("The \"ENV\" environment variable is required. Enter 'stg' or 'dev'");
+    } else {
+        hosts = {
+            stg: process.env.STAGING,
+            dev: process.env.DEV
+        };
+    }
+
     config.baseUrl = hosts[enviroment];
     return config;
 }

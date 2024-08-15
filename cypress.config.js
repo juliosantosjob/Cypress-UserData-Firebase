@@ -1,5 +1,3 @@
-require("dotenv").config();
-
 const { defineConfig } = require("cypress");
 const { allureCypress } = require("allure-cypress/reporter");
 const { setNewViewPort } = require("./cypress/utils/viewportOptions");

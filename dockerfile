@@ -10,4 +10,4 @@ COPY ./pages-instance.js ./
 RUN npm install && \
     npx cypress info
 
-ENTRYPOINT [ "npm", "run", "test:docker" ]
+ENTRYPOINT [ "npm", "run", "test:stg" ]
