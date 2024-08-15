@@ -8,7 +8,7 @@ COPY ./cypress.config.js ./
 COPY ./cypress ./cypress
 COPY ./pages-instance.js ./
 
-RUN npm install && \
+RUN npm install --prefer-offline && \
     npx cypress info
 
-ENTRYPOINT [ "npm", "run", "test:stg" ]
+# Remova o ENTRYPOINT para permitir substituição pelo docker-compose
