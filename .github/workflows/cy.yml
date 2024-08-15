@@ -37,5 +37,4 @@ jobs:
           sudo apt-get install -y docker-compose
 
       - name: Build and run Docker Compose
-        run: |
-          docker-compose up
+        run: docker-compose up
