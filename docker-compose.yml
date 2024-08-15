@@ -11,18 +11,6 @@ services:
       - ./artifacts/chrome/videos:/e2e/cypress/videos
       - ./artifacts/chrome/screenshots:/e2e/cypress/screenshots
 
-  e2e-firefox:
-    build: .
-    environment:
-      - STAGING=${STAGING}
-      - DEV=${DEV}
-      - PROJECT_ID=${PROJECT_ID}
-      - DEVICE_NAME=${DEVICE_NAME}
-      - BROWSER=firefox
-    volumes:
-      - ./artifacts/firefox/videos:/e2e/cypress/videos
-      - ./artifacts/firefox/screenshots:/e2e/cypress/screenshots
-
   e2e-edge:
     build: .
     environment:
