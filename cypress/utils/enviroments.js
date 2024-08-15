@@ -5,7 +5,7 @@ function setupEnv(config) {
 
     const enviroment = process.env.ENV;
 
-    if (!process.env.ENV) {
+    if (!enviroment) {
         throw new Error("The \"ENV\" environment variable is required. Enter 'stg' or 'dev'");
     } else {
         hosts = {
