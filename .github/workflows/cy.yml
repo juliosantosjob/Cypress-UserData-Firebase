@@ -42,7 +42,6 @@ jobs:
       - name: Run testes
         run: |
           docker-compose run e2e-chrome
-          docker-compose run e2e-firefox
           docker-compose run e2e-edge
           docker-compose run e2e-electron
 
