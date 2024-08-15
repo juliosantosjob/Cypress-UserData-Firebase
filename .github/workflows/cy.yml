@@ -41,7 +41,7 @@ jobs:
   
       - name: Run Cypress Tests
         run: |
-            docker-compose exec e2e-chrome npm run test:stg
-            docker-compose exec e2e-firefox npm run test:stg
-            docker-compose exec e2e-edge npm run test:stg
-            docker-compose exec e2e-electron npm run test:stg
+            docker-compose run e2e-chrome
+            docker-compose run e2e-firefox
+            docker-compose run e2e-edge
+            docker-compose run e2e-electron
