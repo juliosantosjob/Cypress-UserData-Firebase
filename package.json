@@ -29,9 +29,8 @@
     "npm-run-all": "^4.1.5"
   },
   "dependencies": {
-    "conections-fb": "^1.0.1",
+    "conections-fb": "^1.1.1",
     "dotenv": "^16.4.5",
-    "firebase": "^10.12.4",
     "rand-select": "^1.0.0"
   }
 }

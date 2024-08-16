@@ -8,6 +8,7 @@ services:
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - ID_TOKEN=${ID_TOKEN}
       - BROWSER=chrome
     volumes:
       - ./allure-results:/e2e/allure-results
@@ -20,6 +21,7 @@ services:
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - ID_TOKEN=${ID_TOKEN}
       - BROWSER=edge
     volumes:
       - ./allure-results:/e2e/allure-results
@@ -32,6 +34,7 @@ services:
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - ID_TOKEN=${ID_TOKEN}
       - BROWSER=electron
     volumes:
       - ./allure-results:/e2e/allure-results
