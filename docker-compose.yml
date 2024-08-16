@@ -1,7 +1,6 @@
 services:
   e2e-chrome:
     build: .
-    command: [ "--browser", "chrome"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -9,14 +8,11 @@ services:
       - DEVICE_NAME=${DEVICE_NAME}
       - BROWSER=chrome
     volumes:
-      - ./artifacts/chrome/videos:/e2e/cypress/videos
-      - ./artifacts/chrome/screenshots:/e2e/cypress/screenshots
       - ./allure-results:/allure-results
       - ./allure-report:/allure-report
 
   e2e-edge:
     build: .
-    command: [ "--browser", "edge"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -24,14 +20,11 @@ services:
       - DEVICE_NAME=${DEVICE_NAME}
       - BROWSER=edge
     volumes:
-      - ./artifacts/edge/videos:/e2e/cypress/videos
-      - ./artifacts/edge/screenshots:/e2e/cypress/screenshots
       - ./allure-results:/allure-results
       - ./allure-report:/allure-report
 
   e2e-electron:
     build: .
-    command: [ "--browser", "electron"]
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
@@ -39,7 +32,5 @@ services:
       - DEVICE_NAME=${DEVICE_NAME}
       - BROWSER=electron
     volumes:
-      - ./artifacts/electron/videos:/e2e/cypress/videos
-      - ./artifacts/electron/screenshots:/e2e/cypress/screenshots
       - ./allure-results:/allure-results
       - ./allure-report:/allure-report
