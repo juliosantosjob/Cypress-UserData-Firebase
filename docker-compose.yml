@@ -11,6 +11,8 @@ services:
     volumes:
       - ./artifacts/chrome/videos:/e2e/cypress/videos
       - ./artifacts/chrome/screenshots:/e2e/cypress/screenshots
+      - ./allure-results:/allure-results
+      - ./allure-report:/allure-report
 
   e2e-edge:
     build: .
@@ -23,7 +25,9 @@ services:
       - BROWSER=edge
     volumes:
       - ./artifacts/edge/videos:/e2e/cypress/videos
-      - ./artifacts/edge/screenshots:/e2e/cypress/screenshots    
+      - ./artifacts/edge/screenshots:/e2e/cypress/screenshots
+      - ./allure-results:/allure-results
+      - ./allure-report:/allure-report
 
   e2e-electron:
     build: .
@@ -37,3 +41,5 @@ services:
     volumes:
       - ./artifacts/electron/videos:/e2e/cypress/videos
       - ./artifacts/electron/screenshots:/e2e/cypress/screenshots
+      - ./allure-results:/allure-results
+      - ./allure-report:/allure-report
