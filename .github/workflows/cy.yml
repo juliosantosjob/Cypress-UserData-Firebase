@@ -23,6 +23,9 @@ jobs:
       - name: Checkout 🛎
         uses: actions/checkout@v4
 
+      - name: Install dependencies
+        run: npm install
+
       - name: Verification with eslint 🔎
         run: npm run lint
 
