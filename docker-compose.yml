@@ -7,6 +7,7 @@ services:
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - XDG_RUNTIME_DIR=/run/user/1000
     volumes:
       - ./artifacts/chrome/videos:/e2e/cypress/videos
       - ./artifacts/chrome/screenshots:/e2e/cypress/screenshots
@@ -19,6 +20,7 @@ services:
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - XDG_RUNTIME_DIR=/run/user/1000
     volumes:
       - ./artifacts/edge/videos:/e2e/cypress/videos
       - ./artifacts/edge/screenshots:/e2e/cypress/screenshots    
@@ -31,6 +33,7 @@ services:
       - DEV=${DEV}
       - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - XDG_RUNTIME_DIR=/run/user/1000
     volumes:
       - ./artifacts/electron/videos:/e2e/cypress/videos
       - ./artifacts/electron/screenshots:/e2e/cypress/screenshots
