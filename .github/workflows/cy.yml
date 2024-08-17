@@ -17,7 +17,6 @@ jobs:
       DEV: ${{ secrets.DEV }}
       PROJECT_ID: ${{ secrets.PROJECT_ID }}
       DEVICE_NAME: ${{ secrets.DEVICE_NAME }}
-      ID_TOKEN: ${{ secrets.ID_TOKEN }}
 
     steps:
       - name: Checkout 🛎
