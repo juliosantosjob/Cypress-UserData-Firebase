@@ -8,7 +8,6 @@ COPY ./cypress.config.js ./
 COPY ./cypress ./cypress
 COPY ./pages-instance.js ./
 
-RUN npm install && \
-    npx cypress info
+RUN npm install
 
 ENTRYPOINT [ "npm", "run", "run:docker" ]
