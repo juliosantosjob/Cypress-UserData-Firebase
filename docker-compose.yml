@@ -4,8 +4,11 @@ services:
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
-      - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - PROJECT_ID=${PROJECT_ID}
+      - ID_TOKEN=${ID_TOKEN}
+      - REFRESH_TOKEN=${REFRESH_TOKEN}
+      - API_KEY=${API_KEY}
       - BROWSER=chrome
     volumes:
       - ./allure-results:/e2e/allure-results
@@ -16,8 +19,11 @@ services:
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
-      - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - PROJECT_ID=${PROJECT_ID}
+      - ID_TOKEN=${ID_TOKEN}
+      - REFRESH_TOKEN=${REFRESH_TOKEN}
+      - API_KEY=${API_KEY}
       - BROWSER=edge
     volumes:
       - ./allure-results:/e2e/allure-results
@@ -28,8 +34,11 @@ services:
     environment:
       - STAGING=${STAGING}
       - DEV=${DEV}
-      - PROJECT_ID=${PROJECT_ID}
       - DEVICE_NAME=${DEVICE_NAME}
+      - PROJECT_ID=${PROJECT_ID}
+      - ID_TOKEN=${ID_TOKEN}
+      - REFRESH_TOKEN=${REFRESH_TOKEN}
+      - API_KEY=${API_KEY}
       - BROWSER=electron
     volumes:
       - ./allure-results:/e2e/allure-results

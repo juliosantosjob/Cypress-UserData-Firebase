@@ -15,8 +15,11 @@ jobs:
     env:
       STAGING: ${{ secrets.STAGING }}
       DEV: ${{ secrets.DEV }}
-      PROJECT_ID: ${{ secrets.PROJECT_ID }}
       DEVICE_NAME: ${{ secrets.DEVICE_NAME }}
+      PROJECT_ID: ${{ secrets.PROJECT_ID }}
+      ID_TOKEN: ${{ secrets.ID_TOKEN }}
+      REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
+      API_KEY: ${{ secrets.API_KEY }}
 
     steps:
       - name: Checkout 🛎
