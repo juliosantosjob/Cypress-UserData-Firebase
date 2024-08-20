@@ -44,25 +44,16 @@ Os usuários do projeto estão configurados no Firebase Realtime Database para e
 
 ![Descrição da Imagem](docs/readme/firebase-users.png)
 
-O projeto esta configurado para acessar o banco de dados via API usando a task cy.task('getUser', 'name_user'). Para acessar o usario basicamente você precisa te-lo criado no Realtime Database e adicionar o ID na variavel de ambiente `PROJECT_ID`, `ID_TOKEN` e `REFRESH_TOKEN`. Você pode criar o `.env` na raiz do projeto. arquivo `.env` deve conter o seguinte formato:
-
+O projeto esta configurado para acessar o banco de dados via API usando a task cy.task('getUser', 'name_user'). Para acessar o usario basicamente você precisa te-lo criado no Realtime Database e adicionar o ID na variavel de ambiente `PROJECT_ID` do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
 
 Exemplo:
 
 ```
 STAGING=<base url do projeto>
 DEV<base url do projeto>
-DEVICE_NAME=Dell XPS 15
-
 PROJECT_ID=<id do projeto no firebase>
-ID_TOKEN=<id token do firebase>
-REFRESH_TOKEN=<refresh token do firebase>
-API_KEY=<api key do firebase>
+DEVICE_NAME=Dell XPS 15
 ```
-
-Caso haja duvidas sobre como conseguir as credenciais do firebase, acesse [Firebase.](https://firebase.google.com/docs/reference/rest/auth?hl=pt-br)
-
-### Viewport
 
 No exemplo acima, há uma variável chamada `DEVICE_NAME` que deve ser configurada com o nome do dispositivo desejado. Por exemplo, se o dispositivo for `Dell XPS 15`, o projeto será executado com um viewport de `1440x900`. Para consultar as dimensões de todos os dispositivos registrados, acesse o caminho `cypress/fixtures/screen-resolutions.json`. Essa configuração proporciona um controle mais preciso sobre as dimensões dos testes. Se necessário, também é possível ajustar o viewport diretamente pela linha de comando usando o comando `npx cypress open --config viewportWidth=1920,viewportHeight=1080`, desta forma os testes serão executados com o viewport de 1920x1080.
 
@@ -90,4 +81,3 @@ Para mais informações ou dúvidas, você entre pode entrar em contato comigo! 
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://www.facebook.com/profile.php?id=100003793058455) 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/oficial_juliosantos/) 
 [![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/julio.saantos199) 
-
