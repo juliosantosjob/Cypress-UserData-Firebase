@@ -23,5 +23,12 @@ const randomData = () => {
 };
 
 export default {
+
+    /**
+     * Retorna um objeto com dados aleatórios.
+     * 
+     * @returns {object} - Objeto com dados aleatórios.
+     */
+    
     randomData
 };

@@ -10,4 +10,4 @@ COPY ./pages-instance.js ./
 
 RUN npm install
 
-ENTRYPOINT [ "npm", "run", "run:docker" ]
+ENTRYPOINT [ "npm", "run", "test:docker" ]

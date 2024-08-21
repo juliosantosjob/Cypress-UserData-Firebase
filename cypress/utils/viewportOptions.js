@@ -22,8 +22,11 @@ function setNewViewPort(config) {
         throw new Error("The \"config\" object is required");
     }
 
-    const { viewportWidth, viewportHeight } = getViewPortOptions(DEVICE_NAME);
-    
+    const {
+        viewportWidth,
+        viewportHeight
+    } = getViewPortOptions(DEVICE_NAME);
+
     config.viewportWidth = viewportWidth;
     config.viewportHeight = viewportHeight;
 }
@@ -37,6 +40,7 @@ module.exports = {
      * @returns {object} - Dimensões da tela (`viewportWidth`, `viewportHeight`).
      * @throws {Error} - Se o `deviceName` for inválido.
      */
+
     getViewPortOptions,
 
     /**
@@ -46,5 +50,6 @@ module.exports = {
      * @returns {object} - Traz um nova configuração de viewport.
      * @throws {Error} - Caso o objeto config seja null.
      */
+    
     setNewViewPort
 };
