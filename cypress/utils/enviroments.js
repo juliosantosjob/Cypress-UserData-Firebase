@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 function setupEnv(config) {
     const environment = process.env.ENV;
     
