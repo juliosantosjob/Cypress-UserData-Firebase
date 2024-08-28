@@ -37,14 +37,12 @@ Você também pode definir o ambiente de execução por linha de comando ao exec
 
 ```sh
 # Para executar em stage
-
 npm run test:stg
 ```
 ou
 
 ```sh
 # Para executar em dev
-
 npm run test:dev 
 ```
 ### Massa de dados
