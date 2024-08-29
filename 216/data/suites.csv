@@ -1,3 +1,0 @@
-"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Tue Aug 20 12:24:09 GMT 2024","Tue Aug 20 12:24:11 GMT 2024","2226","Funcionalidade: Autenticação","","","","","01 Cenário: Login com sucesso",""
-"broken","Tue Aug 20 12:24:06 GMT 2024","Tue Aug 20 12:24:07 GMT 2024","882","Funcionalidade: Home","","","","","01 Cenário: Visualiza lista de produtos após login",""
