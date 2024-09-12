@@ -5,13 +5,13 @@ const DEVICE_NAME = process.env.DEVICE_NAME || "Dell XPS 15";
 
 function getViewPortOptions(deviceName) {
     if (!deviceName) {
-        throw new Error(`The parameter "${deviceName}" is required`);
+        throw new Error("The parameter \"deviceName\" is required");
     }
 
     const dimensioner = resolutions.find(device => device.name === deviceName);
 
     if (!dimensioner) {
-        throw new Error(`Could not find device: "${deviceName}"`);
+        throw new Error("Could not find device: \"deviceName\"");
     }
 
     return dimensioner.viewport;
