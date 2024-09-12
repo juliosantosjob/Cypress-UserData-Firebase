@@ -11,7 +11,7 @@ function getViewPortOptions(deviceName) {
     const dimensioner = resolutions.find(device => device.name === deviceName);
 
     if (!dimensioner) {
-        throw new Error("Could not find device: \"deviceName\"");
+        throw new Error(`Could not find device: "${deviceName}"`);
     }
 
     return dimensioner.viewport;
