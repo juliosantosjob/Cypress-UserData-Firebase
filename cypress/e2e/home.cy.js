@@ -19,7 +19,7 @@ describe("Funcionalidade: Home", () => {
         });
     });
 
-    // afterEach(() => cy.screenshot());
+    afterEach(() => cy.screenshot());
 
     it("01 Cenário: Visualiza lista de produtos após login", () => {
         items.productList.forEach((item) => {
