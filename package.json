@@ -10,7 +10,7 @@
     "allure:clear": "if exist allure-results rmdir /s /q allure-results && if exist allure-report rmdir /s /q allure-report",
     "allure:test": "npm run allure:clear && npm run allure:generate && npm run test && npm run allure:history && npm run allure:open",
     "allure:open": "npx allure serve allure-results",
-    "open:stg": "cross-env ENV=stg npx cypress open ",
+    "open:stg": "cross-env ENV=stg npx cypress open",
     "open:dev": "cross-env ENV=dev npx cypress open",
     "test:stg": "cross-env ENV=stg npx cypress run",
     "test:dev": "cross-env ENV=dev npx cypress run",
