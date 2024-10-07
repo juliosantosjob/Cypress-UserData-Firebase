@@ -17,6 +17,8 @@ jobs:
       DEV: ${{ secrets.DEV }}
       DEVICE_NAME: ${{ secrets.DEVICE_NAME }}
       PROJECT_ID: ${{ secrets.PROJECT_ID }}
+      API_KEY: ${{ secrets.API_KEY }}
+      REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
       
     steps:
       - name: Checkout 🛎
