@@ -56,10 +56,15 @@ O projeto esta configurado para acessar o banco de dados via API usando uma task
 Exemplo:
 
 ```
+# Configurações do projeto
 STAGING=<base url do projeto>
-DEV<base url do projeto>
-PROJECT_ID=<id do projeto no firebase>
+DEV=<base url em dev do projeto>
 DEVICE_NAME=Dell XPS 15
+
+# Configurações do Firebase
+PROJECT_ID=<id do projeto no firebase>
+API_KEY=<chave da api do firebase>
+REFRESH_TOKEN=<refresh token do firebase>
 ```
 
 No exemplo acima, há uma variável chamada `DEVICE_NAME` que deve ser configurada com o nome do dispositivo desejado. Por exemplo, se o dispositivo for `Dell XPS 15`, o projeto será executado com um viewport de `1440x900`. Para consultar as dimensões de todos os dispositivos registrados, acesse o caminho `cypress/fixtures/screen-resolutions.json`. Essa configuração proporciona um controle mais preciso sobre as dimensões dos testes. Se necessário, também é possível ajustar o viewport diretamente pela linha de comando usando o comando `npx cypress open --config viewportWidth=1920,viewportHeight=1080`, desta forma os testes serão executados com o viewport de 1920x1080.
