@@ -31,9 +31,9 @@ cd Cypress-UserData-Firebase
 
 ### Executando os Testes
 
-Antes de executar os testes, crie um arquivo com o nome `.env` na raiz do projeto e adicione a variável `STAGE` e cole dentro desta variável a base URL da aplicação [Sauce Demo](https://www.saucedemo.com/). Você pode usar o arquivo `.env.example` como referência, ele se encontra na raiz do projeto. mas você pode escolher executar os testes em um segundo ambiente, como `dev`, ou outro que deseje configurar.
+Antes de executar os testes, crie um arquivo com o nome `.env` na raiz do projeto e adicione a variável `STAGE` e cole dentro desta variável a base URL da aplicação [Sauce Demo](https://www.saucedemo.com/). Você pode usar o arquivo `.env.example` como referência, ele se encontra na raiz do projeto. O projeto foi configurado para oferecer a opção de escolher executar os testes em um segundo ambiente caso exista, como `dev`.
 
-Você também pode definir o ambiente de execução por linha de comando ao executar os testes da seguinte maneira:
+Você também pode escolher o ambiente de execução por linha de comando ao executar os testes da seguinte maneira:
 
 ```sh
 # Para executar em stage
@@ -47,11 +47,11 @@ npm run test:dev
 ```
 ### Massa de dados
 
-Os usuários do projeto estão configurados no Firebase Realtime Database para evitar hardcoding de dados de homologação no código. 
+Este projeto deseja apresentar uma solução para armazenar os dados sensisveis de maneira segura por isso os usuários do projeto estão salvos no Firebase Realtime Database para evitar hardcoding de dados de homologação no código. 
 
 ![Descrição da Imagem](docs/readme/firebase-users.png)
 
-O projeto esta configurado para acessar o banco de dados via API usando a task cy.task('getUser', 'name_user'). Para acessar o usario basicamente você precisa tê-lo criado no Realtime Database e adicionar o ID na variavel de ambiente `PROJECT_ID` do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
+O projeto esta configurado para acessar o banco de dados via API usando uma task sendo ela a `cy.task('getUser', 'name_user')`. Para acessar o usario basicamente você precisa tê-lo criado no Realtime Database e adicionar o ID na variavel de ambiente `PROJECT_ID` do projeto no arquivo `.env`. O arquivo deve ter o seguinte formato:
 
 Exemplo:
 
