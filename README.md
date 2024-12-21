@@ -19,8 +19,8 @@ Certifique-se de ter instalado
 
 1. Clone este repositório e navegue até o diretório do projeto:
 ```
-git clone <URL_DO_REPOSITORIO>
-cd <NOME_DO_PROJETO>
+git clone https://github.com/juliosantosjob/Cypress-UserData-Firebase.git
+cd Cypress-UserData-Firebase
 ```
 
 2. Instale as dependências do projeto executando o seguinte comando:
