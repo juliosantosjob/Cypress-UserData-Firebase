@@ -1,7 +1,7 @@
 {
-  "name": "vox-tecnologia-technical-challenge",
+  "name": "Cypress-UserData-Firebase",
   "version": "1.0.0",
-  "description": "Desafio Técnico Vox Tecnologia",
+  "description": "Projeto de automação em Cypress integrando usuários ao Firebase",
   "main": "cypress.config.js",
   "scripts": {
     "lint": "npx eslint",
