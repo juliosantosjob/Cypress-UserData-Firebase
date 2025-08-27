@@ -79,11 +79,11 @@ npm run test:stg
 
 O projeto foi desenvolvido utilizando o Allure Report. Caso você esteja rodando o projeto localmente, basta executar `npm run allure:open` após a execução dos testes, e o relatório com todas as informações da execução recém-realizada será aberto em uma nova aba do seu navegador.
 
-Mas, caso esteja visualizando o projeto pelo GitHub, basta clicar [aqui](https://juliosantosjob.github.io/Vox-Tecnologia-Technical-Challenge), e você será direcionado para o histórico de reportes executados anteriormente na pipeline do projeto.
+Mas, caso esteja visualizando o projeto pelo GitHub, basta clicar [aqui](https://juliosantosjob.github.io/Cypress-UserData-Firebase/), e você será direcionado para o histórico de reportes executados ara o históri na pipeline do projeto.
 
 ### Contato
 
-Para mais informações, dúvidas ou sugestões de melhorias para este projeto, entre em contato comigo! 😉
+Para mais informações, dúvidas ou sugestões de melhorias ox-tecnologia-technical-challenge este projeto, entre em contato comigo! 😉
 
 [![Email](https://img.shields.io/badge/Email-%23D14836.svg?logo=gmail&logoColor=white)](mailto:julio958214@gmail.com)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/julio-santos-43428019b)
