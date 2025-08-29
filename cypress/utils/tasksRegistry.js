@@ -1,4 +1,4 @@
-const { getUser } = require("conections-fb");
+const { getUser } = require("connections-fb");
 
 function tasksRegistry(on) {
     on("task", {

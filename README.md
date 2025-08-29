@@ -47,7 +47,7 @@ npm run test:dev
 ```
 ### Massa de dados
 
-Este projeto deseja apresentar uma solução para armazenar os dados sensisveis de maneira segura por isso os usuários do projeto estão salvos no Firebase Realtime Database para evitar hardcoding de dados de homologação no código, eu criei um lib npm para facilitar a manipulação desses dados acesse o projeto [conections-fb](https://www.npmjs.com/package/conections-fb).
+Este projeto deseja apresentar uma solução para armazenar os dados sensisveis de maneira segura por isso os usuários do projeto estão salvos no Firebase Realtime Database para evitar hardcoding de dados de homologação no código, eu criei um lib npm para facilitar a manipulação desses dados acesse o projeto [connections-fb](https://www.npmjs.com/package/connections-fb).
 
 ![Descrição da Imagem](docs/readme/firebase-users.png)
 
