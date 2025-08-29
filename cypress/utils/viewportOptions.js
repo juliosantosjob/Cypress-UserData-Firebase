@@ -35,7 +35,7 @@ module.exports = {
 
     /**
      * Retorna as dimensões da tela para um dispositivo.
-     * 
+     *
      * @param {string} deviceName - Nome do dispositivo (ex: "iPhone 12").
      * @returns {object} - Dimensões da tela (`viewportWidth`, `viewportHeight`).
      * @throws {Error} - Se o `deviceName` for inválido.
@@ -45,11 +45,11 @@ module.exports = {
 
     /**
      * Atualiza a configuração da viewport para um dispositivo.
-     * 
+     *
      * @param {object} config - Objeto de configuração do cypress.
      * @returns {object} - Traz um nova configuração de viewport.
      * @throws {Error} - Caso o objeto config seja null.
      */
-    
+
     setNewViewPort
 };

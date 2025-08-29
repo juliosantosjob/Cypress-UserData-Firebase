@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 import page from "../../pages-instance";
 
 describe("Funcionalidade: Autenticação", () => {
@@ -9,8 +7,6 @@ describe("Funcionalidade: Autenticação", () => {
         page.login.openLoginPage();
         page.login.getUser("authzUser").then(getUser => authzUser = getUser);
     });
-
-    afterEach(() => cy.screenshot());
 
     it("01 Cenário: Login com sucesso", () => {
         page.login.fillCredents(authzUser);

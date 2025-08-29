@@ -6,7 +6,7 @@ const { randomValueFrom } = require("rand-select");
 const randomData = () => {
 
     /**
-     * Filtro todos os dispositivos pelo tipo 
+     * Filtro todos os dispositivos pelo tipo
      * para obter os mesmos randomicamente.
      */
 
@@ -26,9 +26,9 @@ export default {
 
     /**
      * Retorna um objeto com dados aleatórios.
-     * 
+     *
      * @returns {object} - Objeto com dados aleatórios.
      */
-    
+
     randomData
 };

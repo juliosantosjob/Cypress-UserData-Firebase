@@ -1,4 +1,4 @@
-import { ELM_LOGIN } from "../elements/login.element";
+import { ELM_LOGIN } from "../selectors/login.css";
 
 class LoginPage {
 

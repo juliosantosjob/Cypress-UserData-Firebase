@@ -2,7 +2,7 @@ require("dotenv").config();
 
 function setupEnv(config) {
     const environment = process.env.ENV;
-    
+
     if (!environment) {
         throw new Error("The \"ENV\" environment variable is required, use \"stg\" or \"dev\"");
     }
@@ -20,10 +20,10 @@ module.exports = {
 
     /**
      * Retorna a URL base da aplicação.
-     * 
+     *
      * @param {object} config - Configuração do Cypress.
      * @returns {string} - URL base da aplicação.
      */
 
-    setupEnv 
+    setupEnv
 };

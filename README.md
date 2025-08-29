@@ -47,7 +47,7 @@ npm run test:dev
 ```
 ### Massa de dados
 
-Este projeto deseja apresentar uma solução para armazenar os dados sensisveis de maneira segura por isso os usuários do projeto estão salvos no Firebase Realtime Database para evitar hardcoding de dados de homologação no código. 
+Este projeto deseja apresentar uma solução para armazenar os dados sensisveis de maneira segura por isso os usuários do projeto estão salvos no Firebase Realtime Database para evitar hardcoding de dados de homologação no código, eu criei um lib npm para facilitar a manipulação desses dados acesse o projeto [conections-fb](https://www.npmjs.com/package/conections-fb).
 
 ![Descrição da Imagem](docs/readme/firebase-users.png)
 
@@ -89,4 +89,4 @@ Para mais informações, dúvidas ou sugestões de melhorias ox-tecnologia-techn
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/julio-santos-43428019b)
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://www.facebook.com/profile.php?id=100003793058455) 
 [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://www.instagram.com/oficial_juliosantos/) 
-[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/julio.saantos199) 
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/julio.saantos199)

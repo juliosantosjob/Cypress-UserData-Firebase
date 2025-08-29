@@ -1,25 +1,22 @@
-/// <reference types="cypress" />
-
 import creator from "../utils/dataGenerators";
 import page from "../../pages-instance";
 import items from "../fixtures/home-items";
 
 describe("Funcionalidade: Home", () => {
     let authzUser;
-    const { 
+    const {
         product,
         mobile,
         tablet
     } = creator.randomData();
-    
+
     beforeEach(() => {
         page.login.getUser("authzUser").then((getUser) => {
+            console.log(getUser);
             authzUser = getUser;
             page.login.doLogin(authzUser);
         });
     });
-
-    afterEach(() => cy.screenshot());
 
     it("01 Cenário: Visualiza lista de produtos após login", () => {
         items.productList.forEach((item) => {
@@ -27,7 +24,7 @@ describe("Funcionalidade: Home", () => {
         });
     });
 
-    it("02 Cenário: Adicionar Produto ao Carrinho", () => {  
+    it("02 Cenário: Adicionar Produto ao Carrinho", () => {
         page.home.addProductToCart(product);
         page.home.goToCart();
         page.home.productsOnCart(product);

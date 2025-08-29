@@ -1,4 +1,4 @@
-import { ELM_HOME } from "../elements/home.element.js";
+import { ELM_HOME } from "../selectors/home.css";
 
 class HomePage {
 

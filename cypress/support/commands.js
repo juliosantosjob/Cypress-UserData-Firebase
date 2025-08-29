@@ -1,8 +1,8 @@
 /**
- * Criei um comando para digitar ou limpar o campo 
+ * Criei um comando para digitar ou limpar o campo
  * caso o parametro texto seja vazio
- * 
- * @param {string} selector 
+ *
+ * @param {string} selector
  * @param {string} text
  */
 
