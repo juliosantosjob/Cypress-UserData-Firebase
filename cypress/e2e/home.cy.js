@@ -12,7 +12,6 @@ describe("Funcionalidade: Home", () => {
 
     beforeEach(() => {
         page.login.getUser("authzUser").then((getUser) => {
-            console.log(getUser);
             authzUser = getUser;
             page.login.doLogin(authzUser);
         });
