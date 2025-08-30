@@ -10,15 +10,17 @@ const randomData = () => {
      * para obter os mesmos randomicamente.
      */
 
-    const desktopDevices = devices.filter(device => device.type.toLowerCase() === "desktop");
-    const mobileDevices = devices.filter(device => device.type.toLowerCase() === "mobile");
-    const tabletDevices = devices.filter(device => device.type.toLowerCase() === "tablet");
+    const desktopOptions = devices.filter(device => device.type.toLowerCase() === "desktop");
+    const mobileOptions = devices.filter(device => device.type.toLowerCase() === "mobile");
+    const tabletOptions = devices.filter(device => device.type.toLowerCase() === "tablet");
 
     return ({
         product: randomValueFrom({ array: products.productList }),
-        desktop: randomValueFrom({ array: desktopDevices }),
-        mobile: randomValueFrom({ array: mobileDevices }),
-        tablet: randomValueFrom({ array: tabletDevices })
+        devices: {
+            desktop: randomValueFrom({ array: desktopOptions }),
+            mobile: randomValueFrom({ array: mobileOptions }),
+            tablet: randomValueFrom({ array: tabletOptions })
+        }
     });
 };
 
@@ -27,7 +29,7 @@ export default {
     /**
      * Retorna um objeto com dados aleatórios.
      *
-     * @returns {object} - Objeto com dados aleatórios.
+     * @returns {object} - Objeto com producto e dispositivos aleatórios.
      */
 
     randomData

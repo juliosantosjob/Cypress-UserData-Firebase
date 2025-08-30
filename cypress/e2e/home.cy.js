@@ -3,12 +3,8 @@ import page from "../../pages-instance";
 import items from "../fixtures/home-items";
 
 describe("Funcionalidade: Home", () => {
+    const { product, devices } = creator.randomData();
     let authzUser;
-    const {
-        product,
-        mobile,
-        tablet
-    } = creator.randomData();
 
     beforeEach(() => {
         page.login.getUser("authzUser").then((getUser) => {
@@ -101,13 +97,13 @@ describe("Funcionalidade: Home", () => {
     });
 
     it("11 Cenário: Realizar compra um dispositio mobile",
-        mobile.viewport, () => {
+        devices.mobile.viewport, () => {
             page.home.doPurchase(product, authzUser);
             page.home.validateMessage("Thank you for your order!");
         });
 
     it("12 Cenário: Realizar compra com dispositivos do tipo tablet",
-        tablet.viewport, () => {
+        devices.tablet.viewport, () => {
             page.home.doPurchase(product, authzUser);
             page.home.validateMessage("Thank you for your order!");
         });
